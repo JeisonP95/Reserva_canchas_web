@@ -3,17 +3,13 @@ import './CustomForm.css';
 
 interface CustomFormProps {
   children: ReactNode;
-  onSubmit?: (e: React.FormEvent) => void;
 }
 
 const CustomForm: React.FC<CustomFormProps> = ({
-  children,
-  onSubmit = (e) => {
-    e.preventDefault();
-  },
+  children
 }) => {
   return (
-    <form className="custom-form" onSubmit={onSubmit}>
+    <form className="custom-form">
       {children}
     </form>
   );
