@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import NotFound from '../pages/NotFound/NotFound';
 import Login from '../pages/Login/Login';
 import ChangePassword from '../pages/ChangePassword/ChangePassword';
+import Perfil from '../pages/Perfil/Perfil';
 
 const AppRoutes = () => {
 
@@ -11,6 +12,7 @@ const AppRoutes = () => {
             <Route path="/login" element={<Login />} />
             <Route path="*" element={<NotFound />} />
             <Route path="/change-password" element={<ChangePassword />} />
+            <Route path="/perfil" element={<Perfil/>}/>
         </Routes>        
     )
 }
