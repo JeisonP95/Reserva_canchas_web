@@ -1,0 +1,25 @@
+.form-data{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100vh;
+}
+
+.form-data-child-left,
+.form-data-child-right {
+    flex: 1; /* Ambas secciones ocupan el mismo espacio */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-data-child-left img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain; /* Evita deformaciones */
+}
+
+.form-data-child-right {
+    flex-direction: column;
+    text-align: center;
+}
