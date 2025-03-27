@@ -1,7 +1,7 @@
 .custom-input-container {
     display: flex;
     position: relative;
-    width: 100%;
+    width: 80%;
   }
   
   .custom-input {
@@ -12,6 +12,7 @@
     border-radius: 4px;
     color: #333;
     font-size: 16px;
+    outline: none;
   }
   
   .edit-button {
