@@ -7,6 +7,7 @@ import FormData from "../../layouts/FormData/FormData";
 import imgBackground from "../../assets/images/Fondo.png";
 import imgJugador from "../../assets/images/JUGADOR.png";
 import iconCandado from "../../assets/images/iconCandado.png";
+import "./ChangePassword.css";
 
 const ChangePassword: React.FC = () => {
     return (
@@ -15,14 +16,15 @@ const ChangePassword: React.FC = () => {
                 childLeft={<img src={imgJugador} alt="Jugador de fútbol" />}
                 childRight={
                     <CustomForm>
-                        <img src={iconCandado} alt="Candado de seguridad" />
-                        <h1>Actualiza tu contraseña</h1>
+                        <img className="icon-candado" src={iconCandado} alt="Candado de seguridad" />
+                        <h1 className="title-change-password">Actualiza tu contraseña</h1>
                         <CustomInput onChange={() => { }} value="" placeholder="Ingresa tu nueva contraseña" />
                         <CustomInput onChange={() => { }} value="" placeholder="Repite contraseña" />
                         <CustomButton onClick={() => { }} text="Guardar Cambios" />
                     </CustomForm>
                 }
             />
+            
         </Background>
     );
 };
