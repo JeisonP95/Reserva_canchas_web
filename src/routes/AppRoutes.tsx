@@ -4,6 +4,7 @@ import NotFound from '../pages/NotFound/NotFound';
 import Login from '../pages/Login/Login';
 import ChangePassword from '../pages/ChangePassword/ChangePassword';
 import Home from '../pages/Home/Home';
+import Perfil from '../pages/Perfil/Perfil';
 
 const AppRoutes = () => {
 
@@ -13,6 +14,7 @@ const AppRoutes = () => {
             <Route path="*" element={<NotFound />} />
             <Route path="/change-password" element={<ChangePassword />} />
             <Route path="/home" element={<Home/>}/>
+            <Route path="/perfil" element={<Perfil/>}/>
         </Routes>        
     )
 }
