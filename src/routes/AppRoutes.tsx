@@ -6,6 +6,7 @@ import ChangePassword from '../pages/ChangePassword/ChangePassword';
 import Home from '../pages/Home/Home';
 import Perfil from '../pages/Perfil/Perfil';
 
+
 const AppRoutes = () => {
 
     return(

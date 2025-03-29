@@ -1,0 +1,498 @@
+/* Estilos generales */
+.reservation-system {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* Estilos del sidebar */
+.sidebar {
+  width: 220px;
+  height:95%;
+  background-color: rgba(0, 51, 153, 0.8);
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  transition: transform 0.3s ease;
+}
+/*Posiocion Botones*/
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 80px;
+}
+/*Botones del menu*/
+.sidebar-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px;
+  background-color: #8694A5;
+  border: none;
+  border-radius: 800px;
+  color: rgb(255, 255, 255);
+  font-size: 14px;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+/*cambia de color cuando el cursor pasa por encimade los botones de menu*/
+.sidebar-button:hover {
+  background-color: #a7adc7;
+}
+/*tamaño de los iconos*/
+.sidebar-icon {
+  font-size: 20px;
+}
+/*boton Cerrar sesion*/
+.logout-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 80px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+/*cambia de color cuando el cursor pasa por encima boton cerrar sesion*/
+.logout-button:hover {
+  background-color: rgb(48, 71, 239);
+}
+
+/* Boton de menu */
+.menu-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+  background-color: #6e72e8c9;
+  color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 5px;
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+  cursor: pointer;
+  display: block;
+}
+
+/* posicion elementos principal */
+.main-content {
+  flex: 1;
+  margin-left: 245px;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.reservation-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 8px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Estilo del calendario */
+.calendar-container {
+  background-color: rgba(50, 50, 50, 0.591);
+  border-radius: 20px;
+  padding: 15px;
+  box-shadow: 0 80px 160px rgba(0, 0, 0, 0.2);
+}
+/*espacio entre mes y dias en el calendario*/
+.calendar-header {
+  text-align: center;
+  margin-bottom: 2px;
+}
+/*tamaño letra del mes*/
+.calendar-header h2 {
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  margin: 0;
+}
+/*Espacio entre dias del mes vertical*/
+.calendar-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+/*Espacio entre dias del mes horizonatal*/
+.calendar-row {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+/*Espacio entre nombre dias del mes*/
+.calendar-day-header {
+  width: 20px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: white;
+}
+/*Tamaño del cuadro numero del mes*/
+.calendar-day {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: white;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+/*cambia de color cuando el cursor pasa por encima boton numero dias del mes*/
+.calendar-day:hover {
+  background-color: #e0e0e0;
+}
+/*cambia color en seleccion numero dial del mes*/
+.calendar-day.selected-day {
+  background-color: #0066cc;
+  color: rgb(255, 255, 255);
+}
+
+.calendar-day.empty {
+  background-color: transparent;
+}
+
+/*botones de acción */
+.legend-actions-section {
+  grid-column: 2;
+  display: grid;
+  flex-direction: column;
+  gap: 10px;
+}
+/*cuadro informativo de colores*/
+.legend-container {
+  display: grid;
+  grid-template-columns: repeat(1, 2fr);
+  gap: 1px;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(1px);
+  /*borde cuadro*/
+  border-radius: 10px;
+  /*tamaño cuadro*/
+  padding: 10px;
+}
+/*Espacio entre color y descripcion del color*/
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+/*colores cuadro informativo*/
+.legend-color {
+  width: 24px;
+  height: 24px;
+  border-radius: 100px;
+}
+/*color "CON DISPONIBILIDAD"*/
+.legend-color.available {
+  background-color: white;
+}
+/*color "TU RESERVA"*/
+.legend-color.your-reservation {
+  background-color: #0066cc;
+}
+/*color "SIN DISPONIBILIDAD"*/
+.legend-color.unavailable {
+  background-color: #cc0000;
+}
+/*Negrita, color y tamaño letra del cuadro informativo*/
+.legend-item span {
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.action-button-header{
+  display: flex;
+  justify-content: space-around ;
+  padding: 15px;
+}
+
+.action-button-footer{
+  display: flex;
+  justify-content: center;
+}
+
+/*tamaño botones de accion*/
+.action-button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+/*color del boton y letras modificar reserva*/
+.action-button.modify {
+  background-color: rgba(100, 100, 100, 0.8);
+  color: white;
+}
+/*color del boton y letras cancelar reserva*/
+.action-button.cancel {
+  background-color: rgba(204, 0, 0, 0.8);
+  color: white;
+}
+/*color del boton y letras pagar reserva*/
+.action-button.pay {
+  align-items: center;
+  width: 30%;
+  background-color: rgba(100, 100, 100, 0.8);
+  color: white;
+}
+
+.action-button:hover {
+  opacity: 0.9;
+}
+
+/* Disponibilidad de canchas */
+.courts-section {
+  grid-column: 1 / -1;
+  margin-top: 1px;
+}
+/*Margen canchas disponibles*/
+.court-availability-container {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(1px);
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: 1 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/*Tamaño canchas disponibles */
+.tabs-container {
+  width: 100%;
+}
+/*Horario Canchas Disponibles*/
+.tabs-header {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-bottom: 13px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 80px;
+  overflow: hidden;
+  
+}
+/*cambia de color cuando el cursor pasa por encima boton horario reserva*/
+.tab-button:hover{
+  background-color: #e2e3f2;
+  border-radius: 80px;
+}
+
+ 
+.tab-button {
+  /*tamaño cuadro horario rederva*/
+  padding: 10px;
+  background-color: transparent;
+  border: none;
+  color: rgb(0, 0, 0);
+  font-weight: 50;
+  border-radius: 80px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+/*Boton horario seleccionado*/
+.tab-button.active {
+  background-color: rgb(16, 14, 139);
+  color: rgb(255, 255, 255);
+  font-size: 15px;
+  font-weight: bold;
+}
+ 
+
+.court-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+}
+
+.court-card {
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.court-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.court-card-header h3 {
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.court-time {
+  background-color: rgba(0, 0, 0, 0.3);
+  color: rgb(0, 0, 0);
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.court-availability-button {
+  width: 100%;
+  padding: 8px;
+  background-color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+
+/*Cambia color al pasar el cursor*/
+/*.court-availability-button:hover*/
+.selectedCard {
+  /*background-color: rgba(0, 47, 255, 0.24);*/
+  background-color: rgb(21, 0, 255);
+  color: rgb(255, 255, 255);
+  font-size: 15px;
+  font-weight: bold;
+}
+
+
+.court-availability-button:hover {
+  background-color: rgba(0, 47, 255, 0.24);
+  color: rgb(255, 255, 255);
+  font-size: 15px;
+  font-weight: bold;
+}
+
+
+/*Cambia color al seleccionar*/
+.court-availability-button.sel {
+  background-color: #ccff00;
+  color: white;
+
+}
+
+/* Modal de confirmación */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-container {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal-container h2 {
+  margin-top: 0;
+  color: #333;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.modal-button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.modal-button.cancel {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.modal-button.confirm {
+  background-color: #0066cc;
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .court-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .reservation-container {
+    grid-template-columns: 1fr;
+  }
+
+  .legend-actions-section {
+    grid-column: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .menu-button {
+    display: block;
+  }
+
+  .main-content {
+    margin-left: 0;
+  }
+
+  .legend-container {
+    grid-template-columns: 1fr;
+  }
+
+  .court-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
