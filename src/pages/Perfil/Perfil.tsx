@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"; 
 import Background from "../../layouts/Background/Background";
 import fondo from "../../assets/images/Fondo.png";
 import CustomForm from "../../layouts/Form/CustomForm";
@@ -16,9 +16,14 @@ const Perfil: React.FC = () => {
         childRight={
           <CustomForm>
 
-            <h1 className="title-perfil">Actualiza los siguientes datos</h1>
-            <img src={iconperfil} />
+            <h2 className="title-perfil">Actualiza los siguientes datos</h2>
+            <img src={iconperfil} alt="Perfil" className="perfil-icono" />
             <h3 className="title-perfil">Editar imagen de perfil</h3>
+            <CustomInput value="Jesus Yeison" onChange={() => {}} editable />
+            <CustomInput value="Pencue Talaga" onChange={() => {}} editable />
+            <CustomInput value="jesus@correo.com" onChange={() => {}} editable />
+            <CustomInput value="3104994168" onChange={() => {}} editable />
+
 
 
 
