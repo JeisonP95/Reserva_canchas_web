@@ -57,9 +57,19 @@ body {
   .modal-footer {
     display: flex;
     justify-content: space-between;
-    gap: 10px;
+    gap: 30px;
   }
   
+  .custom-button.primary, .custom-button.secondary{
+    flex-grow: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    gap: 20px;
+    transition: background-color 0.3s ease;
+  }
   .btn-cancel, .btn-accept {
     flex-grow: 1;
     padding: 10px;

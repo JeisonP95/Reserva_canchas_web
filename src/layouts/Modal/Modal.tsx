@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
+import React, { Children, useState } from 'react';
 import CustomButton from '../../components/Buttons/CustomButton';
 import './Modal.css';
 
 interface ModalProps {
   titleModal: string;
+  children: React.ReactNode;
   onConfirm: () => void;
   onCancel: () => void;
 }
 
 const Modal: React.FC<ModalProps> = ({
   titleModal,
+  children,
   onConfirm,
   onCancel
 }) => {
@@ -20,15 +22,7 @@ const Modal: React.FC<ModalProps> = ({
           {titleModal}
         </div>
         <div className="modal-content">
-          <div className="modal-title">
-            Reserva fácil y rápido
-          </div>
-          <div className="modal-description">
-            Hemos notado que sueles reservar el [DÍA] a las [HORA] en la cancha [CANCHA].
-          </div>
-          <div className="modal-question">
-            ¿Quieres confirmar tu próxima reserva?
-          </div>
+         {children}
           <div className="modal-footer">
             <CustomButton variant='secondary' text='Cancelar' onClick={onCancel}/>            
             <CustomButton variant='primary' text='Aceptar' onClick={onConfirm}/>             
