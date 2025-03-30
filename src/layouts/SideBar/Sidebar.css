@@ -1,0 +1,113 @@
+/* Sidebar cerrado: solo muestra íconos */
+.sidebar {
+    width: 60px; /* Reducido para mostrar solo íconos */
+    height: 97%;
+    background-color: rgba(0, 51, 153, 0.8);
+    color: white;
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    transition: width 0.3s ease-in-out;
+    overflow: hidden;
+  }
+  
+  /* Sidebar abierto */
+  .sidebar.open {
+    width: 220px; /* Se expande mostrando el texto */
+  }
+  
+  /* Contenedor de botones */
+  .sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 80px;
+    align-items: center;
+  }
+  
+  /* Botones del menú */
+  .sidebar-button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    width: 100%;
+    background-color: #8694A5;
+    border: none;
+    border-radius: 800px;
+    color: white;
+    font-size: 14px;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.2s, width 0.3s;
+    justify-content: center; /* Alinea los íconos al centro en modo cerrado */
+  }
+  
+  /* Cuando el sidebar está cerrado, oculta el texto */
+  .sidebar:not(.open) .sidebar-button span {
+    display: none;
+  }
+  
+  /* Íconos siempre visibles */
+  .sidebar-icon {
+    font-size: 20px;
+    transition: transform 0.3s;
+  }
+  
+  /* Botón de menú */
+  .menu-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    background-color: #6e72e8c9;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  /* Botón de cerrar sesión */
+  .logout-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 80px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  /* Estilo del botón cerrar sesión cuando sidebar está cerrado */
+  .sidebar:not(.open) .logout-button span {
+    display: none;
+  }
+  
+  .logout-button:hover {
+    background-color: rgb(48, 71, 239);
+  }
+  
+  /* Responsive para pantallas pequeñas */
+  @media (max-width: 768px) {
+    .sidebar {
+      width: 50px;
+    }
+  
+    .sidebar.open {
+      width: 220px;
+    }
+  }
+  

@@ -16,6 +16,7 @@ const AppRoutes = () => {
             <Route path="/change-password" element={<ChangePassword />} />
             <Route path="/home" element={<Home/>}/>
             <Route path="/perfil" element={<Perfil/>}/>
+            <Route path="/" element={<Login />} />
         </Routes>        
     )
 }
