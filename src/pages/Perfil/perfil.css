@@ -1,37 +1,39 @@
-.custom-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 60%;
-    max-width: 400px; /* Ajusta según el tamaño del cuadro */
-    padding: 95px;
-    background: rgba(255, 255, 255, 0.2); /* Fondo semi-transparente */
-    border-radius: 10px;
-  } 
   .title-perfil {
     text-align: center;
     margin-bottom: 1px;
-    color: white; /* Ajusta el color si es necesario */
+    color: white;
+    /* Ajusta el color si es necesario */
   }
+
   .custom-input-container {
     width: 100%;
-    max-width: 400px; /* Ajusta para que no se salga */
+    max-width: 400px;
+    /* Ajusta para que no se salga */
     margin-bottom: -10px;
   }
+
   .custom-input {
     width: 100%;
     padding: 10px;
     border-radius: 5px;
-    margin-bottom: -10px; /* Reduce la separación entre inputs */
+    margin-bottom: -10px;
+    /* Reduce la separación entre inputs */
     border: 1px solid #ccc;
   }
+
   .perfil-icono {
     width: 60px;
     height: 60px;
-    object-fit: cover; /* Ajusta la imagen sin deformarla */
-    border-radius: 60%; /* Si quieres que sea circular */
-    margin-bottom: -25px; /* Espacio después de la imagen */
-  }  
-  
-  
+    object-fit: cover;
+    /* Ajusta la imagen sin deformarla */
+    border-radius: 60%;
+    /* Si quieres que sea circular */
+    margin-bottom: -25px;
+    /* Espacio después de la imagen */
+  }
+
+  .perfil-buttons {
+    display: flex;
+    gap: 30px;
+    justify-content: space-between;
+  }

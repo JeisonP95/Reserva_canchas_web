@@ -1,5 +1,5 @@
 import React from "react";
-import CustomForm from "../../layouts/Form/CustomForm";
+import CustomForm from "../../layouts/CustomForm/CustomForm";
 import CustomInput from "../../components/Input/CustomInput";
 import CustomButton from "../../components/Buttons/CustomButton";
 import Background from "../../layouts/Background/Background";
