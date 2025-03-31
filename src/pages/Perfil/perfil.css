@@ -1,5 +1,5 @@
 /* Estilos generales */
-.custom-form {
+.custom-form-perfil {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -39,7 +39,7 @@
   padding: 10px 16px;
   min-width: 180px;
   max-width: 45%;
-  flex: 1; /* Se ajusta al espacio disponible */
+  /*flex: 1; /* Se ajusta al espacio disponible */
 }
 .clickable-icon {
   cursor: pointer;
@@ -53,14 +53,14 @@
 }
 /* Media Queries para pantallas más pequeñas */
 @media (max-width: 1024px) {
-  .custom-form {
+  .custom-form-perfil {
       width: 80%;
       padding: 30px;
   }
 }
 
 @media (max-width: 768px) {
-  .custom-form {
+  .custom-form-perfil {
       width: 90%;
       padding: 20px;
       max-width: none;
@@ -81,7 +81,7 @@
 }
 
 @media (max-width: 480px) {
-  .custom-form {
+  .custom-form-perfil {
       width: 100%;
       padding: 15px;
   }

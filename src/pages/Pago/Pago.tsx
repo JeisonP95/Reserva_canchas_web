@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Background from "../../layouts/Background/Background";
 import fondo from "../../assets/images/Fondo.png";
 import FormData from "../../layouts/FormData/FormData";
-import CustomForm from "../../layouts/Form/CustomForm";
+import CustomForm from "../../layouts/CustomForm/CustomForm";
 import CustomInput from "../../components/Input/CustomInput";
 import CustomSelect from "../../components/Select/CustomSelect";
 import imgPse from "../../assets/images/image_pse.png";

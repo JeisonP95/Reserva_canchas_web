@@ -1,64 +1,30 @@
-import React, { useState } from 'react';
-import './Login.css';
+import React from "react";
+import Forma from "../../assets/images/Forma.png";
+import JugadorLogin from "../../assets/images/JugadorLogin.png";
+import { useNavigate } from "react-router-dom";
+import "./Login.css";
 
 const Login: React.FC = () => {
-  const [email, setEmail] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
 
-  const handleLogin = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Aquí iría la lógica de autenticación
-    console.log('Intentando iniciar sesión con:', email);
-  };
-
+  const navigate = useNavigate();
   return (
     <div className="login-container">
-      
-      <div className="login-content">
-        <div className="image-container">
-          {/* Espacio para la imagen del jugador de fútbol */}
-          <div className="player-image-placeholder"></div>
+      <div className="forma-imag">
+        <img src={Forma} alt="Forma" className="image" />
+      </div>
+      <div className="login-overlay">
+        <div className="login-container-left">
+          <img src={JugadorLogin} alt="Jugador" />
         </div>
-        
-        <div className="login-form-container">
-          <div className="login-form-title">
-            <h2>INICIAR SESION</h2>
-          </div>
-          
-          <form className="login-form" onSubmit={handleLogin}>
-            <div className="form-group">
-              <label htmlFor="email">Usuario</label>
-              <input
-                type="email"
-                id="email"
-                placeholder="Escribeaquí@tucorreo.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-            </div>
-            
-            <div className="form-group">
-              <label htmlFor="password">Contraseña</label>
-              <input
-                type="password"
-                id="password"
-                placeholder="*********"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
-            </div>
-            
-            <div className="forgot-password">
-              <a href="/recuperar">Olvido Su Contraseña?</a>
-            </div>
-            
-            <div className="login-actions">
-              <button type="submit" className="login-button">Iniciar</button>
-              <button type="button" className="register-button" onClick={() => window.location.href = '/registro'}>
-                Registrarse
-              </button>
+        <div className="login-container-right">
+          <h1 className="login-title">INICIAR SESIÓN</h1>
+          <form className="login-form">
+            <input type="text" placeholder="Usuario" className="login-input" />
+            <input type="password" placeholder="Contraseña" className="login-input" />
+            <a href="#" className="forgot-password">Olvidó su contraseña?</a>
+            <div className="buttons">
+              <button type="submit" onClick={() => navigate("/home")}  className="btn-login">Iniciar</button>
+              <button type="button" className="btn-register">Registrarse</button>
             </div>
           </form>
         </div>
