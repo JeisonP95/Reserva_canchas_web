@@ -345,8 +345,10 @@
   }
 
   .menu-button {
+   
     display: block;
   }
+  .titl
 
   .main-content {
     margin-left: 0;
@@ -358,6 +360,9 @@
 
   .court-grid {
     grid-template-columns: 1fr;
+  }
+  .sidebar-title{
+    background-color  : #cc0000;
   }
 }
 
