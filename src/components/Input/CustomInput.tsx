@@ -24,6 +24,7 @@ const CustomInput: React.FC<CustomInputProps> = ({
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
         className="custom-input"
+        disabled={!editable}
       />
       {editable && (
         <button className="edit-button">

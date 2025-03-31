@@ -5,6 +5,7 @@ import Calendar from "../../layouts/Calendar/Calendar";
 import CourtAvailability from "../../layouts/CourtAvailability/CourtAvailability";
 import Modal from "../../layouts/Modal/Modal";
 import Sidebar from "../../layouts/SideBar/SideBar";
+import { useNavigate } from "react-router-dom";
 import "./Home.css";
 
 const Home: React.FC = () => {
@@ -14,6 +15,7 @@ const Home: React.FC = () => {
     recurrente: false,
   });
   const [showSidebar, setShowSidebar] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setModalState((prev) => ({ ...prev, recurrente: true }));
@@ -53,7 +55,7 @@ const Home: React.FC = () => {
                   <button className="action-button cancel" onClick={() => toggleModal("cancelar", true)}>Cancelar Reserva</button>
                 </div>
                 <div className="action-button-footer">
-                  <button className="action-button pay">Pagar Reserva</button>
+                  <button className="action-button pay" onClick={() => navigate("/pago")}>Pagar Reserva</button>
                 </div>
               </div>
             </div>

@@ -1,0 +1,94 @@
+.child-right {
+    width: 100%;
+    max-width: 700px; /* Ajusta el ancho según lo necesites */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Reduce la separación entre elementos */
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px; /* Reduce el tamaño de fuente de todo */
+    transform: scale(0.9); /* Reduce el tamaño de todo el contenido */
+}
+.title-pago {
+    text-align: center;
+    color: white; 
+    margin-bottom: 10px; /* Espaciado adecuado */
+    max-width: 100%; /* Evita que se desborde */
+    word-wrap: break-word; /* Si es muy largo, hace salto de línea */
+    flex-shrink: 0; /* Evita que el título desaparezca cuando hay scroll */
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Los botones se ajustan si no hay espacio */
+    margin-bottom: 0px;
+    flex:1;
+}
+.custom-select-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 74%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+    flex-wrap: wrap;;
+}
+
+.custom-select {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 15px;
+}
+.custom-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.payment-box {
+    background-color: rgba(255, 255, 255, 0.3); /* Transparente */
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+    min-width: 140px;
+    backdrop-filter: blur(8px); /* Efecto de desenfoque */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+}
+.custom-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    text-align: justify;
+}
+.input-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 110%;
+}
+
+.clickable-icon {
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+    padding: 1px;
+    border-radius: 5px;
+}
+.clickable-icon.selected {
+    background-color: rgba(0, 123, 255, 0.3); /* Azul translúcido */
+    border: 1px solid #007bff; /* Borde azul */
+    border-radius: 10%;
+}
+
+  
