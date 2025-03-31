@@ -34,16 +34,6 @@
   margin-bottom: 2px;
 } 
 
-/* Contenedor de botones */
-.button-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  flex-wrap: wrap; /* Los botones se ajustan si no hay espacio */
-  margin-bottom: 0px;
-}
-
 .custom-button {
   font-size: 1rem;
   padding: 10px 16px;

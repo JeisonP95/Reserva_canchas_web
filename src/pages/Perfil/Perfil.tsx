@@ -14,7 +14,7 @@ const Perfil: React.FC = () => {
   const [apellido, setApellido] = React.useState("Pencue Talaga");
   const [telefono, setTelefono] = React.useState("3104994168");
   const [correo, setCorreo] = React.useState("jesus@gmail.com");
-    
+  
   return (
     <Background backgroundImage={fondo}>
       <FormData
@@ -26,22 +26,10 @@ const Perfil: React.FC = () => {
             <div onClick={() => {}} className="clickable-icon">
               <h3 className="title-perfil">Editar imagen de perfil</h3>
             </div>
-            <CustomInput 
-              value={nombre} 
-              onChange={(value) => setNombre(value)}
-              placeholder="Nombre" editable/>
-            <CustomInput 
-              value={apellido} 
-              onChange={(value) => setApellido(value)} 
-              placeholder="apellido" editable />
-            <CustomInput
-              value={telefono}
-              onChange={(value) => setTelefono(value)}
-              placeholder="Teléfono" editable />
-            <CustomInput 
-              value={correo} 
-              onChange={(value) => setCorreo(value)}
-              placeholder="Correo" editable />
+            <CustomInput value={nombre} onChange={(value) => setNombre(value)}placeholder="Nombre" editable/>
+            <CustomInput value={apellido} onChange={(value) => setApellido(value)} placeholder="apellido" editable />
+            <CustomInput value={telefono} onChange={(value) => setTelefono(value)}placeholder="Teléfono" editable />
+            <CustomInput value={correo} onChange={(value) => setCorreo(value)}placeholder="Correo" editable />
             <div style={{ display: 'flex', gap: '20px' }}>
               <CustomButton variant="secondary" onClick={() => { }} text="Cancelar" />
               <CustomButton variant="primary" onClick={() => { }} text="Guardar Cambios" />
