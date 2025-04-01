@@ -8,6 +8,7 @@ import Sidebar from "../../layouts/SideBar/SideBar";
 import { useNavigate } from "react-router-dom";
 import "./Home.css";
 
+
 const Home: React.FC = () => {
   const [modalState, setModalState] = useState({
     modificar: false,
@@ -68,7 +69,13 @@ const Home: React.FC = () => {
         {modalState.cancelar && (
           <Modal
             titleModal="Cancelar Reserva"
-            children={<div>Esta acción no se puede deshacer.</div>}
+            children={
+            <div className="cancelar-modal-content">
+              <p className="paragraph title">¿Escriba su motivo por la cual cancela la reserva?</p>
+              <input type="area" className="cancelar-modal-input" placeholder="Escribe aquí..." />
+              <p className="paragraph footer-cancelar">Nota: El monto consignado para la reserva no sera reembolsado</p>
+            </div>
+          }
             onConfirm={() => toggleModal("cancelar", false)}
             onCancel={() => toggleModal("cancelar", false)}
           />
@@ -77,7 +84,21 @@ const Home: React.FC = () => {
         {modalState.modificar && (
           <Modal
             titleModal="Modificar Reserva"
-            children={<div>Esta acción no se puede deshacer.</div>}
+            children={<div className="modificar-modal-content">
+              <div className="modificar-modal left">
+                <p className="modificar-modal-title">Día</p>
+                <button className="modificar-modal-button-dia selected">Lunes</button>
+                <button className="modificar-modal-button-dia">Martes</button>
+                <button className="modificar-modal-button-dia">Miercoles</button>
+              </div>
+              <div className="modificar-modal right">
+                <p className="modificar-modal-title">Hora</p>
+                <button className="modificar-modal-button-hora selected">6:00 - 7:00pm</button>
+                <button className="modificar-modal-button-hora">7:00 - 8:00pm</button>
+                <button className="modificar-modal-button-hora">9:00 - 10:00pm</button>
+              </div>
+
+            </div>}
             onConfirm={() => toggleModal("modificar", false)}
             onCancel={() => toggleModal("modificar", false)}
           />
@@ -86,7 +107,13 @@ const Home: React.FC = () => {
         {modalState.recurrente && (
           <Modal
             titleModal="Reserva Recurrente"
-            children={<div>Este es un mensaje de reserva recurrente.</div>}
+            children={<div className="recurrente-modal-content">
+              <p className="paragraph title">Reserva fácil y rápido</p>
+              <p className="paragraph">Hemos notado que sueles</p>
+              <p className="paragraph">reservar el [DIA] a las [HORA] en</p>
+              <p className="paragraph">la cancha [CANCHA]</p>
+              <p className="paragraph footer">¿Quieres confirmar tu próxima reserva?</p>
+            </div>}
             onConfirm={() => toggleModal("recurrente", false)}
             onCancel={() => toggleModal("recurrente", false)}
           />
