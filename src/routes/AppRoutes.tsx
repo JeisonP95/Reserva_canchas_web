@@ -6,6 +6,7 @@ import ChangePassword from '../pages/ChangePassword/ChangePassword';
 import Home from '../pages/Home/Home';
 import Perfil from '../pages/Perfil/Perfil';
 import Pago from '../pages/Pago/Pago';
+import RegistroUsuario from '../pages/RegistroUsuario/RegistroUsuario';
 
 
 const AppRoutes = () => {
@@ -18,6 +19,7 @@ const AppRoutes = () => {
             <Route path="/home" element={<Home/>}/>
             <Route path="/perfil" element={<Perfil/>}/>
             <Route path="/pago" element={<Pago/>}/>
+            <Route path="/registro-usuario" element={<RegistroUsuario/>}/>
             <Route path="/" element={<Login />} />
         </Routes>        
     )
