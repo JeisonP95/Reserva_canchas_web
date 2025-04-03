@@ -7,6 +7,7 @@ import Home from '../pages/Home/Home';
 import Perfil from '../pages/Perfil/Perfil';
 import Pago from '../pages/Pago/Pago';
 import RegistroUsuario from '../pages/RegistroUsuario/RegistroUsuario';
+import VerInscripcionCampeonato from '../pages/VerInscripcionCampeonato/verinscripcioncampeonato';
 
 
 const AppRoutes = () => {
@@ -21,7 +22,8 @@ const AppRoutes = () => {
             <Route path="/pago" element={<Pago/>}/>
             <Route path="/registro-usuario" element={<RegistroUsuario/>}/>
             <Route path="/admin" element={<Login/>}/>
-            <Route path="/" element={<Login />} />
+            <Route path="/ver-inscripcion-campeonato" element={<VerInscripcionCampeonato/>} />
+
         </Routes>        
     )
 }
