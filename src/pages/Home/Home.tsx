@@ -9,7 +9,6 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../store";
 import "./Home.css";
 
-
 const Home: React.FC = () => {
   const [modalState, setModalState] = useState({
     modificar: false,
@@ -17,9 +16,10 @@ const Home: React.FC = () => {
     recurrente: false,
   });
   const [showSidebar, setShowSidebar] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
 
-  console.log("isAdmin", useAuth().isAdmin);
+  const options = ["Juan Pérez", "María Gómez", "Carlos Rodríguez", "Laura Martínez", "Jhoan Castro"];
 
   useEffect(() => {
     setModalState((prev) => ({ ...prev, recurrente: true }));
@@ -34,13 +34,27 @@ const Home: React.FC = () => {
       <div className="reservation-system">
         <Sidebar showSidebar={showSidebar} toggleSidebar={() => setShowSidebar(!showSidebar)} />
 
-        {/* Contenido principal */}
         <div className="main-content">
           <div className="reservation-container">
             <div className="calendar-section"><Calendar /></div>
-
-            
             <div className="legend-actions-section">
+            {useAuth().isAdmin && (
+              <div className="search-container">
+                <input
+                  type="text"
+                  className="search-input"
+                  placeholder="Buscar persona"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  list="personas"
+                />
+                <datalist id="personas">
+                  {options.map((option, index) => (
+                    <option key={index} value={option} />
+                  ))}
+                </datalist>
+              </div>
+            )}
               <div className="legend-container">
                 {[
                   { className: "available", label: "CON DISPONIBILIDAD" },
@@ -69,17 +83,16 @@ const Home: React.FC = () => {
           </div>
         </div>
 
-        {/* Modales */}
         {modalState.cancelar && (
           <Modal
             titleModal="Cancelar Reserva"
             children={
-            <div className="cancelar-modal-content">
-              <p className="paragraph title">¿Escriba su motivo por la cual cancela la reserva?</p>
-              <input type="area" className="cancelar-modal-input" placeholder="Escribe aquí..." />
-              <p className="paragraph footer-cancelar">Nota: El monto consignado para la reserva no sera reembolsado</p>
-            </div>
-          }
+              <div className="cancelar-modal-content">
+                <p className="paragraph title">¿Escriba su motivo por la cual cancela la reserva?</p>
+                <input type="textarea" className="cancelar-modal-input" placeholder="Escribe aquí..." />
+                <p className="paragraph footer-cancelar">Nota: El monto consignado para la reserva no será reembolsado</p>
+              </div>
+            }
             onConfirm={() => toggleModal("cancelar", false)}
             onCancel={() => toggleModal("cancelar", false)}
           />
@@ -93,7 +106,7 @@ const Home: React.FC = () => {
                 <p className="modificar-modal-title">Día</p>
                 <button className="modificar-modal-button-dia selected">Lunes</button>
                 <button className="modificar-modal-button-dia">Martes</button>
-                <button className="modificar-modal-button-dia">Miercoles</button>
+                <button className="modificar-modal-button-dia">Miércoles</button>
               </div>
               <div className="modificar-modal right">
                 <p className="modificar-modal-title">Hora</p>
