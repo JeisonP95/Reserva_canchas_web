@@ -19,7 +19,8 @@
 
 /* Sidebar abierto */
 .sidebar.open {
-  width: 400px;
+  width: 260px;
+  padding: 30px;
   /* Se expande mostrando el texto */
 }
 
@@ -27,8 +28,8 @@
 .sidebar-menu {
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  margin-top: 80px;
+  gap: 11px;
+  margin-top: 45px;
   align-items: center;
 }
 
@@ -62,13 +63,13 @@
   text-align: left;
   cursor: pointer;
   transition: background-color 0.2s, width 0.3s;
-  justify-content: center;
+  justify-content: flex-start;
   /* Alinea los íconos al centro en modo cerrado */
 }
 
 /* Cuando el sidebar está cerrado, oculta el texto */
 .sidebar:not(.open) .sidebar-button span {
-  display: none;
+    display: none;
 }
 
 /* Íconos siempre visibles */
@@ -80,8 +81,8 @@
 /* Botón de menú */
 .menu-button {
   position: fixed;
-  top: 50px;
-  left: 10px;
+  top: 15px;
+  left: 11px;
   z-index: 5850;
   background-color: #6e72e8c9;
   color: white;
@@ -119,13 +120,19 @@
 }
 
 /* Responsive para pantallas pequeñas */
-@media (max-width: 768px) {
+@media (max-width: 400px) {
   .sidebar {
     width: 50px;
+    padding: 5px;
+    max-width: none;
   }
-
+}
+@media (max-width: 300px){
   .sidebar.open {
-    width: 400px;
+    width: 20px;
+    padding: 200px;
+  }
+  
   }
   .header {
     background-color: #f0f0f0;
@@ -134,4 +141,3 @@
     justify-content: space-between;
     align-items: center;
   }
-}
