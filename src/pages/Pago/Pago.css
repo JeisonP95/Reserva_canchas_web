@@ -63,6 +63,13 @@
     backdrop-filter: blur(8px); /* Efecto de desenfoque */
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
     font-weight: bold;
+    height: 100%;
+}
+
+.payment-box p{
+    margin: 10px;
+    font-size: 20px; /* Tamaño de fuente más pequeño */
+    color: #333; /* Color del texto */
 }
 .custom-input {
     width: 100%;

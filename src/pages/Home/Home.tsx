@@ -6,6 +6,7 @@ import CourtAvailability from "../../layouts/CourtAvailability/CourtAvailability
 import Modal from "../../layouts/Modal/Modal";
 import Sidebar from "../../layouts/SideBar/SideBar";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../store";
 import "./Home.css";
 
 
@@ -17,6 +18,8 @@ const Home: React.FC = () => {
   });
   const [showSidebar, setShowSidebar] = useState(false);
   const navigate = useNavigate();
+
+  console.log("isAdmin", useAuth().isAdmin);
 
   useEffect(() => {
     setModalState((prev) => ({ ...prev, recurrente: true }));
