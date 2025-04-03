@@ -43,11 +43,15 @@ const Sidebar: React.FC<SidebarProps> = ({ showSidebar, toggleSidebar }) => {
             <span className="sidebar-icon">👤</span>
             <span>Perfil</span>
           </button>
-
           <button className="sidebar-button" onClick={() => navigate("/home")}>
             <span className="sidebar-icon">⚽</span>
             <span>Inscripcion Campeonato</span>
           </button>
+
+          <button className="sidebar-button" onClick={() => navigate("/")}>
+          <span className="sidebar-icon">📑</span>
+          <span>Ver Inscripcion Campeonato</span>
+        </button>
 
           <button className="sidebar-button" onClick={() => navigate("/change-password")}>
             <span className="sidebar-icon">🔑</span>

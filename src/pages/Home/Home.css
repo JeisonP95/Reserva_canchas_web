@@ -9,7 +9,7 @@
 /* Estilos del sidebar */
 .sidebar {
   width: 6  0px;
-  height:100%;
+  height:104%;
   background-color: rgba(0, 51, 153, 0.8);
   color: white;
   padding: 20px;
@@ -17,10 +17,11 @@
   flex-direction: column;
   justify-content: space-between;
   position: fixed;
-  left: 0;
-  top: 0;
+  left: -60px;
+  top: -33px;
   z-index: 100;
   transition: transform 0.3s ease;
+  align-items: flex-end;
 }
 /*Posiocion Botones*/
 .sidebar-menu {
@@ -31,10 +32,7 @@
 }
 /*Botones del menu*/
 .sidebar-button {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 6px;
+  padding: -1px 25px;
   background-color: #8694A5;
   border: none;
   border-radius: 800px;
@@ -42,7 +40,8 @@
   font-size: 14px;
   text-align: left;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: background-color 0.2s;  
+  justify-content: last baseline;
 }
 /*cambia de color cuando el cursor pasa por encimade los botones de menu*/
 .sidebar-button:hover {
@@ -92,7 +91,7 @@
 /* posicion elementos principal */
 .main-content {
   flex: 1;
-  margin-left: 245px;
+  transition: margin-left 0.3s ease;
   padding: 20px;
   overflow-y: auto;
 }
@@ -519,9 +518,13 @@
 
 
 /* Responsive */
-@media (max-width: 300px) {
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
+  }
+
   .court-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .reservation-container {
@@ -531,15 +534,27 @@
   .legend-actions-section {
     grid-column: 1;
   }
+  
+  .legend-container {
+    grid-template-columns: 1fr;
+  }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
+  .action-button-header{
+    flex-direction: column;
+    gap: 100%;
+    
+  }
+  .action-button {
+    width: 100%;
+  }
   .sidebar {
     transform: translateX(-100%);
   }
 
   .sidebar.open {
-    width: 200px;
+    width: 300%;
     transform: translateX(0);
   }
 
@@ -549,13 +564,7 @@
   }
   .titl
 
-  .main-content {
-    margin-left: 0;
-  }
-
-  .legend-container {
-    grid-template-columns: 1fr;
-  }
+  
 
   .court-grid {
     grid-template-columns: 1fr;
