@@ -7,6 +7,7 @@ import CustomInput from "../../components/Input/CustomInput";
 import CustomSelect from "../../components/Select/CustomSelect";
 import imgPse from "../../assets/images/image_pse.png";
 import CustomButton from "../../components/Buttons/CustomButton";
+import { useNavigate } from "react-router-dom";
 import "./Pago.css";
 
 const Pago: React.FC = () => {
@@ -24,6 +25,7 @@ const Pago: React.FC = () => {
     if ((event.target as HTMLElement).tagName === "INPUT") return;
     setSelectedBox((prev) => (prev === box ? null : box)); // Si ya está seleccionada, la deselecciona
   };
+  const navigate = useNavigate();
   return (
     <Background backgroundImage={fondo}>
       <FormData
@@ -37,9 +39,15 @@ const Pago: React.FC = () => {
               editable
             />
             <CustomInput
+              value={nombre}
+              onChange={(value) => setCorreo(value)}
+              placeholder="Nombre*"
+              editable
+            />
+            <CustomInput
               value={apellido}
               onChange={(value) => setApellido(value)}
-              placeholder="apellido*"
+              placeholder="Apellido*"
               editable
             />
             <CustomInput
@@ -48,12 +56,7 @@ const Pago: React.FC = () => {
               placeholder="Teléfono*"
               editable
             />
-            <CustomInput
-              value={correo}
-              onChange={(value) => setCorreo(value)}
-              placeholder="Correo*"
-              editable
-            />
+            
             <CustomSelect
               value={tipodocumento}
               onChange={setTipoDocumento}
@@ -128,7 +131,7 @@ const Pago: React.FC = () => {
               placeholder="Elija su Banco"
             />
             <div style={{ display: 'flex', gap: '20px' }}>
-              <CustomButton variant="secondary" onClick={() => { }} text="Cancelar" />
+              <CustomButton variant="secondary" onClick={() => { navigate("/home")}} text="Cancelar" />
               <CustomButton variant="primary" onClick={() => { }} text="Pagar ahora" />
             </div>
           </div>

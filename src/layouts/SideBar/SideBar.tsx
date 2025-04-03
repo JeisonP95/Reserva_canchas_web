@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../store";
 import "./Sidebar.css";
 
 interface SidebarProps {
@@ -8,7 +9,11 @@ interface SidebarProps {
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ showSidebar, toggleSidebar }) => {
+
+  const { isAdmin } = useAuth();
   const navigate = useNavigate();
+
+  console.log("isAdmin", isAdmin);
 
   return (
     <>
@@ -18,8 +23,16 @@ const Sidebar: React.FC<SidebarProps> = ({ showSidebar, toggleSidebar }) => {
       {/* Sidebar */}
 
       <div className={`sidebar ${showSidebar ? "open" : ""}`}>
-        
         <div className="sidebar-menu">
+
+          {
+            isAdmin ?  <button className="sidebar-button" onClick={() => navigate("/home")}>
+              <span className="sidebar-icon">⚽</span>
+              <span>Registro Campeonatos</span>
+            </button>
+            :""
+          }
+
 
           <button className="sidebar-button" onClick={() => navigate("/home")}>
             <span className="sidebar-icon">🏠</span>

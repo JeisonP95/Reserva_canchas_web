@@ -1,11 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Forma from "../../assets/images/Forma.png";
 import JugadorLogin from "../../assets/images/JugadorLogin.png";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
+import { useAuth } from "../../store";
 import "./Login.css";
 
 const Login: React.FC = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const { isAdmin, setAdmin } = useAuth();
+
+  console.log("isAdmin", isAdmin);
+
+  useEffect(() => {
+    // Verificamos si la ruta es para admin
+    if (location.pathname === "/admin") {
+      setAdmin(true);
+    } else {
+      setAdmin(false);
+    }
+  }, [location, setAdmin]);
+
   return (
     <div className="login-container">
       <div className="forma-imag">
@@ -23,7 +38,7 @@ const Login: React.FC = () => {
             </div>
             <form className="login-form">
               <div className="input-container">
-                <label className="label-form">Usuario</label>
+                <label className="label-form">{isAdmin ? "Administrador" : "Usuario"}</label>
                 <input type="text" placeholder="Escribeaqui@tucorreo.com" className="login-input" />
               </div>
               <div className="input-container">
@@ -33,7 +48,7 @@ const Login: React.FC = () => {
               <a href="#" className="forgot-password">¿Olvidó su contraseña?</a>
               <div className="buttons">
                 <button type="submit" onClick={() => navigate("/home")} className="btn-login">Iniciar</button>
-                <button type="button" className="btn-register" onClick={() => navigate("/registro-usuario")}>Registrarse</button>
+                {isAdmin ? "" : <button type="button" className="btn-register" onClick={() => navigate("/registro-usuario")}>Registrarse</button>}
               </div>
             </form>
           </div>
