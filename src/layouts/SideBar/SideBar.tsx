@@ -48,7 +48,7 @@ const Sidebar: React.FC<SidebarProps> = ({ showSidebar, toggleSidebar }) => {
             <span>Inscripcion Campeonato</span>
           </button>
 
-          <button className="sidebar-button" onClick={() => navigate("/")}>
+          <button className="sidebar-button" onClick={() => navigate("/ver-inscripcion-campeonato")}>
           <span className="sidebar-icon">📑</span>
           <span>Ver Inscripcion Campeonato</span>
         </button>
