@@ -1,7 +1,34 @@
+:root {
+  --sidebar-width-closed: 60px;
+  --sidebar-width-open: min(300px, 80vw);
+  --sidebar-bg-color: rgba(0, 51, 153, 0.8);
+  --sidebar-button-color: #8694a5;
+  --sidebar-button-hover: #a7adc7;
+  --sidebar-icon-size: 20px;
+  --sidebar-transition: 0.3s ease;
+}
 /* Sidebar cerrado: solo muestra íconos */
 .sidebar {
-  width: 60px;
+  width: 0px;
   /* Reducido para mostrar solo íconos */
+  height: 100vh;
+  background-color: rgba(0, 51, 153, 0.8);
+  color: white;
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  transition: width var(--sidebar-transition), transform var(--sidebar-transition);
+  overflow: hidden;
+}
+
+/* Sidebar abierto */
+.sidebar.open {
+  width: 290px;
   height: 100%;
   background-color: rgba(0, 51, 153, 0.8);
   color: white;
@@ -15,12 +42,7 @@
   z-index: 100;
   transition: width 0.3s ease-in-out;
   overflow: hidden;
-}
-
-/* Sidebar abierto */
-.sidebar.open {
-  width: 260px;
-  padding: 30px;
+  align-items: center;
   /* Se expande mostrando el texto */
 }
 
@@ -28,14 +50,14 @@
 .sidebar-menu {
   display: flex;
   flex-direction: column;
-  gap: 11px;
-  margin-top: 45px;
+  gap: 15px;
+  margin-top: 80px;
   align-items: center;
 }
 
 /* Noombre pagina */
 .sidebar-buttons {
-  display: flex;
+  display:center;
   margin: 10px;
   padding: 15px;
   width: 100%;
@@ -63,13 +85,13 @@
   text-align: left;
   cursor: pointer;
   transition: background-color 0.2s, width 0.3s;
-  justify-content: flex-start;
+  justify-content: center;
   /* Alinea los íconos al centro en modo cerrado */
 }
 
 /* Cuando el sidebar está cerrado, oculta el texto */
 .sidebar:not(.open) .sidebar-button span {
-    display: none;
+  display: none;
 }
 
 /* Íconos siempre visibles */
@@ -81,8 +103,8 @@
 /* Botón de menú */
 .menu-button {
   position: fixed;
-  top: 15px;
-  left: 11px;
+  top: 50px;
+  left: 10px;
   z-index: 5850;
   background-color: #6e72e8c9;
   color: white;
@@ -108,6 +130,7 @@
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.2s;
+  justify-items: flex-start;
 }
 
 /* Estilo del botón cerrar sesión cuando sidebar está cerrado */
@@ -120,19 +143,13 @@
 }
 
 /* Responsive para pantallas pequeñas */
-@media (max-width: 400px) {
+@media (max-width: 1568px) {
   .sidebar {
     width: 50px;
-    padding: 5px;
-    max-width: none;
   }
-}
-@media (max-width: 300px){
+
   .sidebar.open {
-    width: 20px;
-    padding: 200px;
-  }
-  
+    width: 300px;
   }
   .header {
     background-color: #f0f0f0;
@@ -141,3 +158,21 @@
     justify-content: space-between;
     align-items: center;
   }
+  .header-content {
+    display: flex;
+    align-items: center;
+  }
+  .header h1 {
+    margin: 0;
+  }
+  .main {
+    flex: 1;
+    padding: 20px;
+    margin-left: 250px; /* Espacio para la sidebar */
+    transition: margin-left 0.3s ease-in-out;
+  }
+  
+  .main.open {
+    margin-left: 0; /* Ajusta el margen cuando la sidebar está abierta */
+  }
+}
