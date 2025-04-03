@@ -26,7 +26,7 @@ const Sidebar: React.FC<SidebarProps> = ({ showSidebar, toggleSidebar }) => {
         <div className="sidebar-menu">
 
           {
-            isAdmin ?  <button className="sidebar-button" onClick={() => navigate("/home")}>
+            isAdmin ?  <button className="sidebar-button" onClick={() => navigate("/registro-campeonato")}>
               <span className="sidebar-icon">⚽</span>
               <span>Registro Campeonatos</span>
             </button>

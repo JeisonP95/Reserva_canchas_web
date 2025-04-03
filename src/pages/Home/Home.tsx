@@ -67,7 +67,6 @@ const Home: React.FC = () => {
 
             <div className="courts-section"><CourtAvailability /></div>
           </div>
-        <h2>Confirmar Reserva</h2>
         </div>
 
         {/* Modales */}
