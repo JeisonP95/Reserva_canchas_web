@@ -7,6 +7,7 @@ import jugador from "../../assets/images/JUGADOR.png";
 import iconperfil from "../../assets/images/person_circle.png";
 import CustomInput from "../../components/Input/CustomInput";
 import CustomButton from "../../components/Buttons/CustomButton";
+import { useNavigate } from "react-router-dom";
 import "./perfil.css";
 
 const Perfil: React.FC = () => {
@@ -14,6 +15,7 @@ const Perfil: React.FC = () => {
   const [apellido, setApellido] = React.useState("Pencue Talaga");
   const [telefono, setTelefono] = React.useState("3104994168");
   const [correo, setCorreo] = React.useState("jesus@gmail.com");
+  const navigate = useNavigate();
 
   return (
     <Background backgroundImage={fondo}>
@@ -53,7 +55,7 @@ const Perfil: React.FC = () => {
             <div style={{ display: "flex", gap: "20px" }}>
               <CustomButton
                 variant="secondary"
-                onClick={() => {}}
+                onClick={() => {navigate("/home")}}
                 text="Cancelar"
               />
               <CustomButton
