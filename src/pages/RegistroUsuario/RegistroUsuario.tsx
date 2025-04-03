@@ -43,17 +43,17 @@ const RegistroUsuario: React.FC = () => {
                         <input type="password" id="repite-contrasena" placeholder="**********" className="registro-usuario-input" />
                     </div>
                 </div>
-                <div className="registro-usuario-container-right" onClick={() => navigate("/home")}>
+                <div className="registro-usuario-container-right" onClick={() => navigate("/home")}>                
                     <button type="submit" className="btn-registrar">Registrarse</button>
                     <div className="group-buttons">
                         <button type="button" className="btn-redes">
-                            <img className="icono-facebook" src={LogoFacebook}/>
+                            <img className="icono-facebook" src={LogoFacebook} alt="Facebook"/>
                             Registrarse con Facebook
                         </button>
                     </div>
                     <div className="group-buttons">
                         <button type="button" className="btn-redes">
-                            <img className="icono-gmail" src={LogoGmail}/>
+                            <img className="icono-gmail" src={LogoGmail} alt="Gmail"/>
                             Registrarse con Gmail
                         </button>
                     </div>

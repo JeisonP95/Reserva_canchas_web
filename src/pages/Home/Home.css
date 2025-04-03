@@ -8,8 +8,8 @@
 
 /* Estilos del sidebar */
 .sidebar {
-  width: 6  0px;
-  height:104%;
+  width: 60px;
+  height: 104%;
   background-color: rgba(0, 51, 153, 0.8);
   color: white;
   padding: 20px;
@@ -40,7 +40,7 @@
   font-size: 14px;
   text-align: left;
   cursor: pointer;
-  transition: background-color 0.2s;  
+  transition: background-color 0.2s;
   justify-content: last baseline;
 }
 /*cambia de color cuando el cursor pasa por encimade los botones de menu*/
@@ -66,7 +66,6 @@
   cursor: pointer;
   transition: background-color 0.2s;
 }
-/*cambia de color cuando el cursor pasa por encima boton cerrar sesion*/
 .logout-button:hover {
   background-color: rgb(48, 71, 239);
 }
@@ -111,31 +110,26 @@
   padding: 15px;
   box-shadow: 0 80px 160px rgba(0, 0, 0, 0.2);
 }
-/*espacio entre mes y dias en el calendario*/
 .calendar-header {
   text-align: center;
   margin-bottom: 2px;
 }
-/*tamaño letra del mes*/
 .calendar-header h2 {
   color: white;
   font-size: 22px;
   font-weight: bold;
   margin: 0;
 }
-/*Espacio entre dias del mes vertical*/
 .calendar-grid {
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
-/*Espacio entre dias del mes horizonatal*/
 .calendar-row {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 5px;
 }
-/*Espacio entre nombre dias del mes*/
 .calendar-day-header {
   width: 20px;
   height: 40px;
@@ -146,7 +140,6 @@
   font-weight: 500;
   color: white;
 }
-/*Tamaño del cuadro numero del mes*/
 .calendar-day {
   width: 40px;
   height: 40px;
@@ -160,22 +153,65 @@
   cursor: pointer;
   transition: background-color 0.2s;
 }
-/*cambia de color cuando el cursor pasa por encima boton numero dias del mes*/
 .calendar-day:hover {
   background-color: #e0e0e0;
 }
-/*cambia color en seleccion numero dial del mes*/
 .calendar-day.selected-day {
   background-color: #0066cc;
   color: rgb(255, 255, 255);
 }
-
 .calendar-day.empty {
   background-color: transparent;
 }
 
+/* Ajuste de la lista desplegable */
+.search-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.search-input {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.search-select {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  background-color: #f7f7f7;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+.search-select:hover {
+  border-color: #0066cc;
+}
+.search-select option {
+  padding: 10px;
+}
+.search-select:focus {
+  border-color: #0066cc;
+  outline: none;
+  box-shadow: 0px 0px 10px #0066cc;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .search-container {
+    flex-direction: column;
+  }
+  .search-input, .search-select {
+    width: 100%;
+  }
+}
+
 /*botones de acción */
 .legend-actions-section {
+  display: flex;
   grid-column: 2;
   display: grid;
   flex-direction: column;

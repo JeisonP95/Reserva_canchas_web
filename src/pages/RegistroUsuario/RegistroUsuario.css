@@ -7,6 +7,7 @@
 body,
 html {
     height: 100%;
+    font-family: Arial, sans-serif;
 }
 
 .registro-usuario-container {
@@ -16,7 +17,7 @@ html {
     overflow: hidden;
 }
 
-.fondo-registro-usuario {
+.fondo-registro-usuario, .header-fondo-registro-usuario {
     position: absolute;
     top: 0;
     left: 0;
@@ -25,7 +26,7 @@ html {
     z-index: -1;
 }
 
-.fondo-imagen{
+.fondo-imagen {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -35,7 +36,7 @@ html {
     position: absolute;
     top: 0;
     left: 0;
-    height: 45%;
+    height: 35%;
     width: 100%;
     z-index: -1;
 }
@@ -54,20 +55,22 @@ html {
     width: 100%;
     height: calc(100% - 45%);
     position: absolute;
-    top: 45%;
+    top: 35%;
     left: 0;
     z-index: 1;
 }
 
 .registro-usuario-container-left {
-    width: 45%;
-    padding: 10px 60px 0px 60px;
+    width: 30%;
+    padding: 10px 60px 0px 80px;
+    transform: translateX(30%);
 }
 
 .registro-usuario-container-right {
     padding: 150px 300px 0px 0px;
     display: flex;
     flex-direction: column;
+    transform: translateX(-30%);
 }
 
 .group-inputs {
@@ -77,9 +80,8 @@ html {
 }
 
 label {
-    margin-bottom: 5px;
     font-weight: bold;
-    text-align: left;
+    margin-bottom: 5px;
 }
 
 .registro-usuario-input {
@@ -87,6 +89,7 @@ label {
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    width: 100%;
 }
 
 .btn-registrar {
@@ -122,4 +125,29 @@ label {
 .icono-facebook, .icono-gmail {
     width: 50px;
     height: 30px;
+}
+
+@media (max-width: 767px) {
+    .registro-usuario-overlay {
+        flex-direction: column;
+        padding: 20px;
+        height: auto;
+    }
+
+    .registro-usuario-container-left,
+    .registro-usuario-container-right {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .registro-usuario-input,
+    .btn-registrar,
+    .btn-redes {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .btn-registrar {
+        padding: 10px;
+    }
 }

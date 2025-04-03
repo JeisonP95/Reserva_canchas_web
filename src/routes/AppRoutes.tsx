@@ -8,6 +8,7 @@ import Perfil from '../pages/Perfil/Perfil';
 import Pago from '../pages/Pago/Pago';
 import RegistroUsuario from '../pages/RegistroUsuario/RegistroUsuario';
 import VerInscripcionCampeonato from '../pages/VerInscripcionCampeonato/verinscripcioncampeonato';
+import RegistroCampeonato from '../pages/RegistroCampeonato/RegistroCampeonato';
 
 
 const AppRoutes = () => {
@@ -24,7 +25,8 @@ const AppRoutes = () => {
             <Route path="/admin" element={<Login/>}/>
             <Route path="/ver-inscripcion-campeonato" element={<VerInscripcionCampeonato/>} />
             <Route path='/' element={<Login/>} />
-
+            <Route path="/registro-campeonato" element={<RegistroCampeonato/>}/>
+            <Route path="/" element={<Login />} />
         </Routes>        
     )
 }
