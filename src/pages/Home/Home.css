@@ -6,6 +6,89 @@
   position: relative;
 }
 
+/* Estilos del sidebar */
+.sidebar {
+  width: 6  0px;
+  height:100%;
+  background-color: rgba(0, 51, 153, 0.8);
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  transition: transform 0.3s ease;
+}
+/*Posiocion Botones*/
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 80px;
+}
+/*Botones del menu*/
+.sidebar-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px;
+  background-color: #8694A5;
+  border: none;
+  border-radius: 800px;
+  color: rgb(255, 255, 255);
+  font-size: 14px;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+/*cambia de color cuando el cursor pasa por encimade los botones de menu*/
+.sidebar-button:hover {
+  background-color: #a7adc7;
+}
+/*tamaño de los iconos*/
+.sidebar-icon {
+  font-size: 20px;
+}
+/*boton Cerrar sesion*/
+.logout-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 80px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+/*cambia de color cuando el cursor pasa por encima boton cerrar sesion*/
+.logout-button:hover {
+  background-color: rgb(48, 71, 239);
+}
+
+/* Boton de menu */
+.menu-button {
+  position: fixed;
+  top: 15px;
+  left: 11px;
+  z-index: 1000;
+  background-color: #6e72e8c9;
+  color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 5px;
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+  cursor: pointer;
+  display: block;
+}
+
 /* posicion elementos principal */
 .main-content {
   flex: 1;
@@ -353,6 +436,10 @@
   align-items: center;
   padding: 20px;
   border-radius: 10px;
+  padding: 20px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .modificar-modal{
@@ -432,7 +519,7 @@
 
 
 /* Responsive */
-@media (max-width: 992px) {
+@media (max-width: 300px) {
   .court-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -452,6 +539,7 @@
   }
 
   .sidebar.open {
+    width: 200px;
     transform: translateX(0);
   }
 

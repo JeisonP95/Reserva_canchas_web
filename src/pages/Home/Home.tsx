@@ -39,6 +39,7 @@ const Home: React.FC = () => {
           <div className="reservation-container">
             <div className="calendar-section"><Calendar /></div>
 
+            
             <div className="legend-actions-section">
               <div className="legend-container">
                 {[
@@ -66,6 +67,7 @@ const Home: React.FC = () => {
 
             <div className="courts-section"><CourtAvailability /></div>
           </div>
+        <h2>Confirmar Reserva</h2>
         </div>
 
         {/* Modales */}

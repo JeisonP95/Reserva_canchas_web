@@ -23,12 +23,11 @@ const Sidebar: React.FC<SidebarProps> = ({ showSidebar, toggleSidebar }) => {
       {/* Sidebar */}
 
       <div className={`sidebar ${showSidebar ? "open" : ""}`}>
-        
         <div className="sidebar-menu">
 
           {
             isAdmin ?  <button className="sidebar-button" onClick={() => navigate("/home")}>
-              <span className="sidebar-icon">🏠</span>
+              <span className="sidebar-icon">⚽</span>
               <span>Registro Campeonatos</span>
             </button>
             :""
@@ -43,6 +42,11 @@ const Sidebar: React.FC<SidebarProps> = ({ showSidebar, toggleSidebar }) => {
           <button className="sidebar-button" onClick={() => navigate("/perfil")}>
             <span className="sidebar-icon">👤</span>
             <span>Perfil</span>
+          </button>
+
+          <button className="sidebar-button" onClick={() => navigate("/home")}>
+            <span className="sidebar-icon">⚽</span>
+            <span>Inscripcion Campeonato</span>
           </button>
 
           <button className="sidebar-button" onClick={() => navigate("/change-password")}>
