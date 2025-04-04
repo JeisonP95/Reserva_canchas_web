@@ -26,7 +26,7 @@ const Sidebar: React.FC<SidebarProps> = ({ showSidebar, toggleSidebar }) => {
         <div className="sidebar-menu">
 
           {
-            isAdmin ?  <button className="sidebar-button" onClick={() => navigate("/home")}>
+            isAdmin ?  <button className="sidebar-button" onClick={() => navigate("/registro-campeonato")}>
               <span className="sidebar-icon">⚽</span>
               <span>Registro Campeonatos</span>
             </button>
@@ -59,7 +59,7 @@ const Sidebar: React.FC<SidebarProps> = ({ showSidebar, toggleSidebar }) => {
           </button>
         </div>
 
-        <button className="logout-button" onClick={() => navigate("/login")}>
+        <button className="logout-button" onClick={() =>  {isAdmin ? navigate("/admin") : navigate("/login")} }>
           <span className="sidebar-icon">🚪</span>
           <span>Cerrar Sesión</span>
         </button>
