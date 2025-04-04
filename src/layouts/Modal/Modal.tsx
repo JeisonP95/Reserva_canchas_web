@@ -1,4 +1,4 @@
-import React, { Children, useState } from 'react';
+import React from 'react';
 import CustomButton from '../../components/Buttons/CustomButton';
 import './Modal.css';
 
@@ -16,14 +16,14 @@ const Modal: React.FC<ModalProps> = ({
   onCancel
 }) => {
   return (
-    <div className="modal-overlay">
-      <div className="modal-container">
-        <div className="modal-header">
+    <div className="modal-overlay-component">
+      <div className="modal-container-component">
+        <div className="modal-header-component">
           {titleModal}
         </div>
-        <div className="modal-content">
+        <div className="modal-content-component">
          {children}
-          <div className="modal-footer">
+          <div className="modal-footer-component">
             <CustomButton variant='secondary' text='Cancelar' onClick={onCancel}/>            
             <CustomButton variant='primary' text='Aceptar' onClick={onConfirm}/>             
           </div>
