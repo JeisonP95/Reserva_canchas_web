@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './Calendar.css';
 // Componente de Calendario
 const Calendar: React.FC = () => {
   const [selectedDay, setSelectedDay] = useState(18);

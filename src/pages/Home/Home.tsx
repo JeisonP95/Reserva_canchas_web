@@ -19,6 +19,8 @@ const Home: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
 
+  const { isAdmin } = useAuth()
+
   const options = ["Juan Pérez", "María Gómez", "Carlos Rodríguez", "Laura Martínez", "Jhoan Castro"];
 
   useEffect(() => {
@@ -121,7 +123,7 @@ const Home: React.FC = () => {
           />
         )}
 
-        {modalState.recurrente && (
+        {modalState.recurrente && !isAdmin &&(
           <Modal
             titleModal="Reserva Recurrente"
             children={<div className="recurrente-modal-content">

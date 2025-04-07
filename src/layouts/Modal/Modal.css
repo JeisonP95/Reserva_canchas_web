@@ -5,7 +5,7 @@ body {
   background-color: #f0f0f0;
 }
 
-.modal-overlay {
+.modal-overlay-component {
   position: fixed;
   top: 0;
   left: 0;
@@ -18,7 +18,7 @@ body {
   z-index: 1000;
 }
 
-.modal-container {
+.modal-container-component {
   width: 90%;
   max-width: 400px;
   background-color: white;
@@ -27,7 +27,7 @@ body {
   overflow: hidden;
 }
 
-.modal-header {
+.modal-header-component {
   background-color: #0000FF;
   color: white;
   padding: 15px;
@@ -35,14 +35,14 @@ body {
   font-weight: bold;
 }
 
-.modal-content {
+.modal-content-component {
   padding: 10px;
   width: 100%;
   display: flex;
   flex-direction: column;
 }
 
-.modal-footer {
+.modal-footer-component {
   display: flex;
   gap: 10px;
   box-sizing: border-box;
@@ -81,7 +81,7 @@ body {
 }
 
 @media (max-width: 480px) {
-  .modal-container {
+  .modal-container-component {
     width: 95%;
     margin: 0 10px;
   }

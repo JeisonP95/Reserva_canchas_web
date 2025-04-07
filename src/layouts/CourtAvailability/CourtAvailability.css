@@ -1,0 +1,126 @@
+/*Margen canchas disponibles*/
+.court-availability-container {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(1px);
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 1 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/*Horario Canchas Disponibles*/
+.tabs-header {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-bottom: 13px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 80px;
+    overflow: hidden;
+}
+
+/*cambia de color cuando el cursor pasa por encima boton horario reserva*/
+.tab-button:hover {
+    background-color: #e2e3f2;
+    border-radius: 80px;
+}
+
+/* Disponibilidad de canchas */
+.courts-section {
+    grid-column: 1 / -1;
+    margin-top: 1px;
+  }
+
+   
+.tab-button {
+    /*tamaño cuadro horario rederva*/
+    padding: 10px;
+    background-color: transparent;
+    border: none;
+    color: rgb(0, 0, 0);
+    font-weight: 50;
+    border-radius: 80px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+
+  
+/*Boton horario seleccionado*/
+.tab-button.active {
+    background-color: rgb(16, 14, 139);
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+    font-weight: bold;
+  }
+
+  
+.court-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+  }
+
+  .court-card {
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .court-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .court-card-header h3 {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .court-time {
+    background-color: rgba(0, 0, 0, 0.3);
+    color: rgb(0, 0, 0);
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 4px;
+  }
+  
+  .court-availability-button {
+    width: 100%;
+    padding: 8px;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+
+  
+
+/*Cambia color al pasar el cursor*/
+/*.court-availability-button:hover*/
+.selectedCard {
+    /*background-color: rgba(0, 47, 255, 0.24);*/
+    background-color: rgb(21, 0, 255);
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+    font-weight: bold;
+  }
+  .court-availability-button:hover {
+    background-color: rgba(0, 47, 255, 0.24);
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+    font-weight: bold;
+  }
+  
+  
+  /*Cambia color al seleccionar*/
+  .court-availability-button.sel {
+    background-color: #ccff00;
+    color: white;
+  
+  }  

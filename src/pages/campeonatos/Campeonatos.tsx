@@ -171,37 +171,34 @@ const Campeonatos: React.FC = () => {
                 (mínimo 7, máximo 15)
               </p>
               <div className="form-buttons-2">
-              <div style={{ display: "flex", gap: "40px" }}>
+                <div style={{ display: "flex", gap: "40px" }}>
+                  <div className="form-jugador-row">
+                    <CustomInput
+                      value={nombreJugador}
+                      onChange={setNombreJugador}
+                      placeholder="Nombre del jugador"
+                      editable
+                    />
 
-                <div className="form-jugador-row">
-                <CustomInput
-                  value={nombreJugador}
-                  onChange={setNombreJugador}
-                  placeholder="Nombre del jugador"
-                  editable
-                />
-                
-                
-                <CustomInput
-                  value={edadJugador}
-                  onChange={setEdadJugador}
-                  placeholder="Edad del jugador"
-                  editable
-                />
-           
-        
-                <CustomSelect
-                  value={posicionJugador}
-                  onChange={setPosicionJugador}
-                  options={[
-                    { value: "Portero", label: "Portero" },
-                    { value: "Defensa", label: "Defensa" },
-                    { value: "Mediocampista", label: "Mediocampista" },
-                    { value: "Delantero", label: "Delantero" },
-                  ]}
-                  placeholder="Selecciona una posición"
-                />
-                </div>
+                    <CustomInput
+                      value={edadJugador}
+                      onChange={setEdadJugador}
+                      placeholder="Edad del jugador"
+                      editable
+                    />
+
+                    <CustomSelect
+                      value={posicionJugador}
+                      onChange={setPosicionJugador}
+                      options={[
+                        { value: "Portero", label: "Portero" },
+                        { value: "Defensa", label: "Defensa" },
+                        { value: "Mediocampista", label: "Mediocampista" },
+                        { value: "Delantero", label: "Delantero" },
+                      ]}
+                      placeholder="Selecciona una posición"
+                    />
+                  </div>
                 </div>
               </div>
 
@@ -247,24 +244,22 @@ const Campeonatos: React.FC = () => {
                 ))}
               </ul>
               <div style={{ display: "flex", gap: "55px" }}>
-              <CustomButton
-                variant="secondary"
-                onClick={() => {
-                  navigate("/home");
-                }}
-                text="Cancelar"
-              />
-              <CustomButton
-                variant="primary"
-                onClick={() => {
-                  navigate("/home");
-                }}
-                text="Registrar equipo"
-              />
+                <CustomButton
+                  variant="secondary"
+                  onClick={() => {
+                    navigate("/home");
+                  }}
+                  text="Cancelar"
+                />
+                <CustomButton
+                  variant="primary"
+                  onClick={() => {
+                    navigate("/home");
+                  }}
+                  text="Registrar equipo"
+                />
+              </div>
             </div>
-            </div>
-
-            
           </div>
         )}
       </div>

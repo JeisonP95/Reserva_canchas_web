@@ -1,27 +1,30 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import { useAuth } from "../../store";
-import "./Sidebar.css";
+import React from "react"
+import { useNavigate } from "react-router-dom"
+import { useAuth } from "../../store"
+import "./Sidebar.css"
 
 interface SidebarProps {
-  showSidebar: boolean;
-  toggleSidebar: () => void;
+  showSidebar: boolean
+  toggleSidebar: () => void
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ showSidebar, toggleSidebar }) => {
+  const { isAdmin, logout } = useAuth()
+  const navigate = useNavigate()
 
-  const { isAdmin } = useAuth();
-  const navigate = useNavigate();
-
-  console.log("isAdmin", isAdmin);
+  const handleLogout = () => {
+    // Llamar a la función logout del contexto de autenticación
+    logout()
+  }
 
   return (
     <>
       {/* Botón de menú móvil */}
-      <button className="menu-button" onClick={toggleSidebar}>☰</button>
+      <button className="menu-button" onClick={toggleSidebar}>
+        ☰
+      </button>
 
       {/* Sidebar */}
-
       <div className={`sidebar ${showSidebar ? "open" : ""}`}>
         <div className="sidebar-menu">
           <button className="sidebar-button" onClick={() => navigate("/home")}>
@@ -34,22 +37,32 @@ const Sidebar: React.FC<SidebarProps> = ({ showSidebar, toggleSidebar }) => {
             <span>Perfil</span>
           </button>
 
-          {
-            isAdmin ?  <button className="sidebar-button" onClick={() => navigate("/registro-campeonato")}>
+          
+             <button className="sidebar-button" onClick={() => navigate("/campeonatos")}>
               <span className="sidebar-icon">⚽</span>
-              <span>Registro Campeonatos</span>
+              <span>Inscripcion Campeonatos</span>
             </button>
-            :""
-          }
-          <button className="sidebar-button" onClick={() => navigate("/campeonatos")}>
-            <span className="sidebar-icon">⚽</span>
-            <span>Inscripcion Campeonato</span>
-          </button>
+                    
+          {isAdmin ? (
+            <>
+              <button className="sidebar-button" onClick={() => navigate("/registro-campeonato")}>
+                <span className="sidebar-icon">&#127942;</span>
+                <span>Crear Campeonatos</span>
+              </button>
+              <button className="sidebar-button" onClick={() => navigate("/gestion-financiera")}>
+                <span className="sidebar-icon">&#128178;</span>
+                <span>Gestion Financiera</span>
+              </button>
+            </>
+          ) : (
+            ""
+          )}
+
 
           <button className="sidebar-button" onClick={() => navigate("/ver-inscripcion-campeonato")}>
-          <span className="sidebar-icon">📑</span>
-          <span>Ver Inscripcion Campeonato</span>
-        </button>
+            <span className="sidebar-icon">📑</span>
+            <span>Ver Inscripcion Campeonato</span>
+          </button>
 
           <button className="sidebar-button" onClick={() => navigate("/change-password")}>
             <span className="sidebar-icon">🔑</span>
@@ -57,13 +70,14 @@ const Sidebar: React.FC<SidebarProps> = ({ showSidebar, toggleSidebar }) => {
           </button>
         </div>
 
-        <button className="logout-button" onClick={() =>  {isAdmin ? navigate("/admin") : navigate("/login")} }>
+        <button className="logout-button" onClick={handleLogout}>
           <span className="sidebar-icon">🚪</span>
           <span>Cerrar Sesión</span>
         </button>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Sidebar;
+export default Sidebar
+
