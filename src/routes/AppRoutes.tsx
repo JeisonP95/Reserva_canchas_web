@@ -9,6 +9,7 @@ import Pago from '../pages/Pago/Pago';
 import RegistroUsuario from '../pages/RegistroUsuario/RegistroUsuario';
 import VerInscripcionCampeonato from '../pages/VerInscripcionCampeonato/verinscripcioncampeonato';
 import RegistroCampeonato from '../pages/RegistroCampeonato/RegistroCampeonato';
+import Campeonatos from '../pages/campeonatos/Campeonatos';
 import GestionFinanciera from '../pages/GestionFinanciera/GestionFinanciera';
 import ProtectedRoute from '../layouts/ProtectedRoute/ProtectedRoute';
 
@@ -27,6 +28,7 @@ const AppRoutes = () => {
 
 
             {/* Rutas protegidas para cualquier usuario autenticado */}
+            <Route path="/campeonatos" element={<ProtectedRoute><Campeonatos/></ProtectedRoute> }/>   
             <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute>} />
             <Route path="/perfil" element={<ProtectedRoute><Perfil /></ProtectedRoute>} />
             <Route path="/pago" element={<ProtectedRoute><Pago /></ProtectedRoute>} />

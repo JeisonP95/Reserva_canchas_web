@@ -1,39 +1,24 @@
-.custom-input-container {
+.custom-select-container {
     display: flex;
     position: relative;
-    width: 80%;
-}
-
-.custom-input {
+    width: 80%; /* Igual que el input */
+  }
+  
+  .custom-select {
     width: 100%;
-    padding: 10px;
-    background-color: rgba(255, 255, 255, 0.9);
-    border: 1px solid #ccc;
+    padding: 0px;
+    background-color: rgba(255, 255, 255, 0.088);
+    border: 0px solid #ccc;
     border-radius: 4px;
     color: #333;
-    font-size: 16px;
+    font-size: 12px;
     outline: none;
-    appearance: none; /* Oculta el estilo predeterminado del select */
-}
-
-.custom-input:focus {
-    border-color: #007bff; /* Borde azul al seleccionar */
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-}
-
-.custom-input-container select {
-    cursor: pointer; /* Cambia el cursor a puntero */
-}
-
-.edit-button {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+    
+  }
+  
+  .custom-select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  
