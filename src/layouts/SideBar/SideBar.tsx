@@ -41,7 +41,7 @@ const Sidebar: React.FC<SidebarProps> = ({ showSidebar, toggleSidebar }) => {
             </button>
             :""
           }
-          <button className="sidebar-button" onClick={() => navigate("/home")}>
+          <button className="sidebar-button" onClick={() => navigate("/campeonatos")}>
             <span className="sidebar-icon">⚽</span>
             <span>Inscripcion Campeonato</span>
           </button>

@@ -9,6 +9,7 @@ import Pago from '../pages/Pago/Pago';
 import RegistroUsuario from '../pages/RegistroUsuario/RegistroUsuario';
 import VerInscripcionCampeonato from '../pages/VerInscripcionCampeonato/verinscripcioncampeonato';
 import RegistroCampeonato from '../pages/RegistroCampeonato/RegistroCampeonato';
+import Campeonatos from '../pages/campeonatos/Campeonatos';
 
 
 const AppRoutes = () => {
@@ -27,6 +28,7 @@ const AppRoutes = () => {
             <Route path='/' element={<Login/>} />
             <Route path="/registro-campeonato" element={<RegistroCampeonato/>}/>
             <Route path="/" element={<Login />} />
+            <Route path="/campeonatos" element={<Campeonatos/>}/>
         </Routes>        
     )
 }
