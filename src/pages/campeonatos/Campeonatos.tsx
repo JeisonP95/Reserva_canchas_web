@@ -146,115 +146,99 @@ const Campeonatos: React.FC = () => {
         ) : (
           <div className="registro-jugadores">
             <div className="equipo-info">
-              <h3>Información del Equipo</h3>
-              <p>
-                <strong>Equipo:</strong> {nombreequipo}
-              </p>
-              <p>
-                <strong>Campeonato:</strong> {seleccampeo}
-              </p>
-              <p>
-                <strong>Capitán:</strong> {nombrecapi}
-              </p>
-              <p>
-                <strong>Correo:</strong> {correo}
-              </p>
-              <p>
-                <strong>Teléfono:</strong> {telefono}
-              </p>
+              <h3 className="panel-title">Información del Equipo</h3>
+              <div className="team-details">
+                <div className="detail-item">
+                  <span className="detail-label">Equipo:</span>
+                  <span className="detail-value">{nombreequipo}</span>
+                </div>
+                <div className="detail-item">
+                  <span className="detail-label">Campeonato:</span>
+                  <span className="detail-value">{seleccampeo}</span>
+                </div>
+                <div className="detail-item">
+                  <span className="detail-label">Capitán:</span>
+                  <span className="detail-value">{nombrecapi}</span>
+                </div>
+                <div className="detail-item">
+                  <span className="detail-label">Correo:</span>
+                  <span className="detail-value">{correo}</span>
+                </div>
+                <div className="detail-item">
+                  <span className="detail-label">Teléfono:</span>
+                  <span className="detail-value">{telefono}</span>
+                </div>
+              </div>
             </div>
 
             <div className="jugadores-form">
-              <h3>Registrar Jugadores</h3>
+              <h3 className="panel-title">Registrar Jugadores</h3>
               <p className="form-subtitle-2">
-                Registre a todos los jugadores que participarán en el campeonato
-                (mínimo 7, máximo 15)
+                Registre a todos los jugadores que participarán en el campeonato (mínimo 7, máximo 15)
               </p>
-              <div className="form-buttons-2">
-                <div style={{ display: "flex", gap: "40px" }}>
-                  <div className="form-jugador-row">
-                    <CustomInput
-                      value={nombreJugador}
-                      onChange={setNombreJugador}
-                      placeholder="Nombre del jugador"
-                      editable
-                    />
+              <div className="player-input-container">
+                <div className="form-jugador-row">
+                  <CustomInput
+                    value={nombreJugador}
+                    onChange={setNombreJugador}
+                    placeholder="Nombre del jugador"
+                    editable
+                  />
 
-                    <CustomInput
-                      value={edadJugador}
-                      onChange={setEdadJugador}
-                      placeholder="Edad del jugador"
-                      editable
-                    />
+                  <CustomInput value={edadJugador} onChange={setEdadJugador} placeholder="Edad del jugador" editable />
 
-                    <CustomSelect
-                      value={posicionJugador}
-                      onChange={setPosicionJugador}
-                      options={[
-                        { value: "Portero", label: "Portero" },
-                        { value: "Defensa", label: "Defensa" },
-                        { value: "Mediocampista", label: "Mediocampista" },
-                        { value: "Delantero", label: "Delantero" },
-                      ]}
-                      placeholder="Selecciona una posición"
-                    />
-                  </div>
+                  <CustomSelect
+                    value={posicionJugador}
+                    onChange={setPosicionJugador}
+                    options={[
+                      { value: "Portero", label: "Portero" },
+                      { value: "Defensa", label: "Defensa" },
+                      { value: "Mediocampista", label: "Mediocampista" },
+                      { value: "Delantero", label: "Delantero" },
+                    ]}
+                    placeholder="Selecciona una posición"
+                  />
+                </div>
+                <div className="add-player-button">
+                  <CustomButton text="Agregar jugador" onClick={agregarJugador} />
                 </div>
               </div>
 
-              <div className="button-agre">
-                <CustomButton text="Agregar jugador" onClick={agregarJugador} />
+              <div className="players-list-container">
+                {jugadores.length > 0 && (
+                  <div className="players-list-header">
+                    <span>Nombre</span>
+                    <span>Edad</span>
+                    <span>Posición</span>
+                    <span>Acción</span>
+                  </div>
+                )}
+                <ul className="players-list">
+                  {jugadores.map((jugador, index) => (
+                    <li key={index} className="player-item">
+                      <span className="player-number">{index + 1}</span>
+                      <span className="player-name">{jugador.nombre}</span>
+                      <span className="player-age">{jugador.edad} años</span>
+                      <span className="player-position">{jugador.posicion}</span>
+                      <button onClick={() => eliminarJugador(index)} className="delete-player-btn">
+                        ❌
+                      </button>
+                    </li>
+                  ))}
+                </ul>
               </div>
-
-              <ul
-                style={{
-                  marginTop: "20px",
-                  listStyle: "none",
-                  padding: 0,
-                  color: "white",
-                }}
-              >
-                {jugadores.map((jugador, index) => (
-                  <li
-                    key={index}
-                    style={{
-                      marginBottom: "8px",
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "center",
-                    }}
-                  >
-                    {index + 1}. {jugador.nombre} - {jugador.edad} años -{" "}
-                    {jugador.posicion}
-                    <button
-                      onClick={() => eliminarJugador(index)}
-                      style={{
-                        marginLeft: "10px",
-                        background: "transparent",
-                        color: "white",
-                        border: "none",
-                        padding: "5px 55px",
-                        borderRadius: "5px",
-                        cursor: "pointer",
-                      }}
-                    >
-                      ❌
-                    </button>
-                  </li>
-                ))}
-              </ul>
-              <div style={{ display: "flex", gap: "55px" }}>
+              <div className="form-actions">
                 <CustomButton
                   variant="secondary"
                   onClick={() => {
-                    navigate("/home");
+                    navigate("/home")
                   }}
                   text="Cancelar"
                 />
                 <CustomButton
                   variant="primary"
                   onClick={() => {
-                    navigate("/home");
+                    navigate("/home")
                   }}
                   text="Registrar equipo"
                 />
