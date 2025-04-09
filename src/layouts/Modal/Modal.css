@@ -1,88 +1,266 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f0f0f0;
-}
-
-.modal-overlay {
+/* Modal Overlay - Background blur effect */
+.modal-overlay-component {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  animation: fadeIn 0.3s ease-out;
 }
 
-.modal-container {
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Modal Container */
+.modal-container-component {
   width: 90%;
-  max-width: 400px;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 450px;
+  background: linear-gradient(145deg, #ffffff, #f5f5f5);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
   overflow: hidden;
+  transform: translateY(0);
+  animation: slideUp 0.4s ease-out;
+  border: 1px solid rgba(255, 255, 255, 0.8);
 }
 
-.modal-header {
-  background-color: #0000FF;
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Modal Header */
+.modal-header-component {
+  background: linear-gradient(135deg, #0055ff, #0033cc);
   color: white;
-  padding: 15px;
-  text-align: center;
-  font-weight: bold;
+  padding: 18px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.modal-content {
-  padding: 10px;
+.modal-title {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.modal-close-button {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.modal-close-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: rotate(90deg);
+}
+
+/* Modal Content */
+.modal-content-component {
+  padding: 20px;
   width: 100%;
   display: flex;
   flex-direction: column;
+  gap: 20px;
 }
 
-.modal-footer {
+/* Modal Footer */
+.modal-footer-component {
   display: flex;
-  gap: 10px;
+  gap: 15px;
   box-sizing: border-box;
   width: 100%;
-  justify-content: space-between;
+  justify-content: flex-end;
+  margin-top: 10px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
 }
 
+/* Custom styling for modal content types */
 
+/* Cancelar Modal */
+.cancelar-modal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
 
-.custom-button {
+.cancelar-modal-input {
+  padding: 12px 15px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  width: 100%;
+  height: 120px;
+  resize: none;
+  transition: border-color 0.3s ease;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.cancelar-modal-input:focus {
+  border-color: #0055ff;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 85, 255, 0.1);
+}
+
+.footer-cancelar {
+  display: flex;
+  color: #d32f2f;
+  justify-content: center;
+  font-size: 0.9rem;
+  text-align: center;
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 8px;
+  background-color: #ffebee;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border-left: 4px solid #d32f2f;
+}
+
+/* Modificar Modal */
+.modificar-modal-content {
+  display: flex;
+  gap: 20px;
+}
+
+.modificar-modal {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modificar-modal-title {
+  color: #333;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.modificar-modal-button-dia,
+.modificar-modal-button-hora {
   padding: 10px;
   border: none;
-  border-radius: 5px;
-  font-weight: bold;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
-.custom-button.primary {
-  background-color: #0000FF;
+.modificar-modal-button-dia {
+  background-color: rgba(0, 85, 255, 0.1);
+  color: #0055ff;
+}
+
+.modificar-modal-button-hora {
+  background-color: rgba(0, 85, 255, 0.1);
+  color: #0055ff;
+}
+
+.modificar-modal-button-dia:hover,
+.modificar-modal-button-hora:hover {
+  background-color: rgba(0, 85, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.modificar-modal-button-dia.selected,
+.modificar-modal-button-hora.selected {
+  background: linear-gradient(135deg, #0055ff, #0033cc);
   color: white;
+  box-shadow: 0 4px 10px rgba(0, 85, 255, 0.3);
 }
 
-.custom-button.secondary {
-  background-color: #cccccc;
+.modificar-modal-button-dia.selected::after,
+.modificar-modal-button-hora.selected::after {
+  content: "✓";
+  position: absolute;
+  right: 10px;
+}
+
+/* Recurrente Modal */
+.recurrente-modal-content {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgba(0, 85, 255, 0.05);
+}
+
+.paragraph {
   color: #333;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 5px 0;
 }
 
-.custom-button.primary:hover {
-  background-color: #0000CC;
+.paragraph.title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #0055ff;
+  margin-bottom: 15px;
 }
 
-.custom-button.secondary:hover {
-  background-color: #b3b3b3;
+.paragraph.footer {
+  font-weight: 500;
+  margin-top: 15px;
+  text-align: center;
+  color: #0055ff;
 }
 
+/* Responsive adjustments */
 @media (max-width: 480px) {
-  .modal-container {
+  .modal-container-component {
     width: 95%;
-    margin: 0 10px;
+    max-width: none;
+  }
+
+  .modificar-modal-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .modal-footer-component {
+    flex-direction: column-reverse;
+  }
+
+  .modal-footer-component button {
+    width: 100%;
   }
 }

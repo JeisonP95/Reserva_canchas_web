@@ -1,0 +1,345 @@
+.custom-form-campeo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-init;
+  justify-content: center;
+  width: 60%;
+  max-width: 600px;
+  padding: 40px; /* Reducimos el padding */
+  background: rgba(255, 255, 255, 0.44);
+  border-radius: 10px;
+  gap: 20px;
+  min-height: 80vh; /* Mantiene una altura mínima en pantallas grandes */
+  max-height: none; /* Permite que crezca según el contenido */
+   /* Solo activa el scroll si es necesario */
+}
+  
+
+.title-perfil-cam{
+  text-align: center;
+  color: white; 
+  margin-bottom: 10px; /* Espaciado adecuado */
+  max-width: 100%; /* Evita que se desborde */
+  word-wrap: break-word; /* Si es muy largo, hace salto de línea */
+  flex-shrink: 0;
+  justify-content: center;
+}
+
+.form-subtitle {
+  font-size: 1rem;
+  color: #d8d9da;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-subtitle-2{font-size: 1rem;
+  color: #d8d9da;
+  text-align: justify;
+  margin-bottom: 5px;}
+
+.form-buttons {
+  display: flex;
+  margin-top: 5px;
+  width: 125%;
+}
+
+.form-buttons-2 {
+  display: flex;
+  margin-top: 5px;
+  width: 120%;
+}
+
+.button-agre{
+  margin-top: 7px;
+}
+
+.form-select {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+  width: 135%;
+}
+.form-jugador-row {
+  display: flex;
+  gap: 20px;
+  width: 750px;
+  margin-bottom: 10px;
+}
+
+.form-jugador-row > * {
+  flex: 1;
+  min-width: 0; /* Para evitar overflow */
+}
+
+.campeonatos-container {
+    background-color: transparent;
+    width: 90%;
+    padding: 2rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+  
+.registro-jugadores {
+  display: flex;
+  gap: 30px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* Player registration section */
+.registro-jugadores {
+  display: flex;
+  gap: 30px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.equipo-info {
+  flex: 1;
+  background: linear-gradient(145deg, rgba(30, 30, 40, 0.8), rgba(40, 40, 60, 0.8));
+  padding: 25px;
+  border-radius: 16px;
+  color: white;
+  height: fit-content;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.panel-title {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: white;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.panel-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #ff9d00, #ff6a00);
+  border-radius: 3px;
+}
+
+.team-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.detail-label {
+  font-weight: 600;
+  color: #b0b0b0;
+}
+
+.detail-value {
+  color: #ffffff;
+}
+
+.jugadores-form {
+  flex: 2;
+  background: linear-gradient(145deg, rgba(30, 30, 40, 0.8), rgba(40, 40, 60, 0.8));
+  padding: 25px;
+  border-radius: 16px;
+  color: white;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  max-height: 600px;
+  overflow: hidden;
+}
+
+.player-input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.form-jugador-row {
+  display: flex;
+  gap: 15px;
+  width: 100%;
+}
+
+.form-jugador-row > * {
+  flex: 1;
+  min-width: 0;
+}
+
+.add-player-button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Players list styling */
+.players-list-container {
+  flex: 1;
+  overflow-y: auto;
+  margin: 15px 0;
+  padding-right: 10px;
+  max-height: 300px;
+}
+
+.players-list-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.players-list-container::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.players-list-container::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+}
+
+.players-list-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.players-list-header {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.5fr 0.5fr;
+  padding: 10px 15px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 8px 8px 0 0;
+  font-weight: 600;
+  color: #ff9d00;
+  margin-bottom: 5px;
+}
+
+.players-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.player-item {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.5fr 0.5fr;
+  align-items: center;
+  padding: 12px 15px;
+  margin-bottom: 8px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.player-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateX(5px);
+}
+
+.player-number {
+  display: none;
+}
+
+.player-name {
+  font-weight: 500;
+}
+
+.delete-player-btn {
+  background: transparent;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.delete-player-btn:hover {
+  transform: scale(1.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .custom-form-campeo {
+    width: 80%;
+  }
+
+  .registro-jugadores {
+    flex-direction: column;
+  }
+
+  .equipo-info,
+  .jugadores-form {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .custom-form-campeo {
+    width: 90%;
+    padding: 30px;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .form-jugador-row {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .players-list-header {
+    display: none;
+  }
+
+  .player-item {
+    grid-template-columns: 1fr;
+    gap: 5px;
+    position: relative;
+    padding: 15px;
+  }
+
+  .player-number {
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #ff9d00;
+    color: #000;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.8rem;
+  }
+
+  .delete-player-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+
+  .player-name,
+  .player-age,
+  .player-position {
+    margin-left: 30px;
+    margin-top: 5px;
+  }
+}
