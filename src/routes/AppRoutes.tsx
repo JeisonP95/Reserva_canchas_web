@@ -7,33 +7,31 @@ import Home from '../pages/Home/Home';
 import Perfil from '../pages/Perfil/Perfil';
 import Pago from '../pages/Pago/Pago';
 import RegistroUsuario from '../pages/RegistroUsuario/RegistroUsuario';
-<<<<<<<<< Temporary merge branch 1
 import RegistroCampeonato from '../pages/RegistroCampeonato/RegistroCampeonato';
-=========
 import VerInscripcionCampeonato from '../pages/VerInscripcionCampeonato/verinscripcioncampeonato';
->>>>>>>>> Temporary merge branch 2
+import CrearUsuarioAdmin from '../pages/Crearusuarioadmin/crearusuarioadmin';
+
 
 
 const AppRoutes = () => {
 
-    return(
+    return (
         <Routes>
             <Route path="/login" element={<Login />} />
             <Route path="*" element={<NotFound />} />
             <Route path="/change-password" element={<ChangePassword />} />
-            <Route path="/home" element={<Home/>}/>
-            <Route path="/perfil" element={<Perfil/>}/>
-            <Route path="/pago" element={<Pago/>}/>
-            <Route path="/registro-usuario" element={<RegistroUsuario/>}/>
-            <Route path="/admin" element={<Login/>}/>
-<<<<<<<<< Temporary merge branch 1
-            <Route path="/registro-campeonato" element={<RegistroCampeonato/>}/>
+            <Route path="/home" element={<Home />} />
+            <Route path="/perfil" element={<Perfil />} />
+            <Route path="/pago" element={<Pago />} />
+            <Route path="/registro-usuario" element={<RegistroUsuario />} />
+            <Route path="/admin" element={<Login />} />
+            <Route path="/registro-campeonato" element={<RegistroCampeonato />} />
             <Route path="/" element={<Login />} />
-=========
-            <Route path="/ver-inscripcion-campeonato" element={<VerInscripcionCampeonato/>} />
+            <Route path="/ver-inscripcion-campeonato" element={<VerInscripcionCampeonato />} />
+            <Route path="/crearusuarioadmin" element={<CrearUsuarioAdmin/>}/>
 
->>>>>>>>> Temporary merge branch 2
-        </Routes>        
+
+        </Routes>
     )
 }
 

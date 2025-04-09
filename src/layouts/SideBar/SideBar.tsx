@@ -24,16 +24,6 @@ const Sidebar: React.FC<SidebarProps> = ({ showSidebar, toggleSidebar }) => {
 
       <div className={`sidebar ${showSidebar ? "open" : ""}`}>
         <div className="sidebar-menu">
-
-          {
-            isAdmin ?  <button className="sidebar-button" onClick={() => navigate("/registro-campeonato")}>
-              <span className="sidebar-icon">⚽</span>
-              <span>Registro Campeonatos</span>
-            </button>
-            :""
-          }
-
-
           <button className="sidebar-button" onClick={() => navigate("/home")}>
             <span className="sidebar-icon">🏠</span>
             <span>Inicio</span>
@@ -43,6 +33,14 @@ const Sidebar: React.FC<SidebarProps> = ({ showSidebar, toggleSidebar }) => {
             <span className="sidebar-icon">👤</span>
             <span>Perfil</span>
           </button>
+
+          {
+            isAdmin ?  <button className="sidebar-button" onClick={() => navigate("/registro-campeonato")}>
+              <span className="sidebar-icon">⚽</span>
+              <span>Registro Campeonatos</span>
+            </button>
+            :""
+          }
           <button className="sidebar-button" onClick={() => navigate("/home")}>
             <span className="sidebar-icon">⚽</span>
             <span>Inscripcion Campeonato</span>
