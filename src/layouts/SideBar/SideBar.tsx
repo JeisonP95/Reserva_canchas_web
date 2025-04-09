@@ -35,6 +35,10 @@ const Sidebar: React.FC<SidebarProps> = ({ showSidebar, toggleSidebar }) => {
           <button className="sidebar-button" onClick={() => navigate("/perfil")}>
             <span className="sidebar-icon">👤</span>
             <span>Perfil</span>
+
+          </button><button className="sidebar-button" onClick={() => navigate("/crearusuarioadmin")}>
+            <span className="sidebar-icon">👤</span>
+            <span>Crear Usuario</span>
           </button>
 
           

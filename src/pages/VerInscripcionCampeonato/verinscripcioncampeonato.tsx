@@ -176,7 +176,7 @@ const VerInscripcionCampeonato: React.FC = () => {
           <div className="inscripcion-footer">
             <button
               className="new-inscription-button"
-              onClick={() => navigate("/inscripcion-campeonato")}
+              onClick={() => navigate("/registro-campeonato")}
             >
               Inscribirse en Nuevo Campeonato
             </button>

@@ -7,11 +7,12 @@ import Home from '../pages/Home/Home';
 import Perfil from '../pages/Perfil/Perfil';
 import Pago from '../pages/Pago/Pago';
 import RegistroUsuario from '../pages/RegistroUsuario/RegistroUsuario';
-import VerInscripcionCampeonato from '../pages/VerInscripcionCampeonato/verinscripcioncampeonato';
 import RegistroCampeonato from '../pages/RegistroCampeonato/RegistroCampeonato';
 import Campeonatos from '../pages/campeonatos/Campeonatos';
 import GestionFinanciera from '../pages/GestionFinanciera/GestionFinanciera';
 import ProtectedRoute from '../layouts/ProtectedRoute/ProtectedRoute';
+import VerInscripcionCampeonato from '../pages/VerInscripcionCampeonato/verinscripcioncampeonato';
+import CrearUsuarioAdmin from '../pages/Crearusuarioadmin/crearusuarioadmin';
 
 
 const AppRoutes = () => {
@@ -39,6 +40,7 @@ const AppRoutes = () => {
             {/* Rutas protegidas para admin */}
             <Route path="/registro-campeonato" element={<ProtectedRoute requireAdmin={true}> <RegistroCampeonato /></ProtectedRoute>} />
             <Route path='/gestion-financiera' element={<ProtectedRoute requireAdmin={true}><GestionFinanciera /></ProtectedRoute>} />
+            <Route path='/crearusuarioadmin' element={<ProtectedRoute requireAdmin={true}><CrearUsuarioAdmin /></ProtectedRoute>} />
         </Routes>
     )
 }
