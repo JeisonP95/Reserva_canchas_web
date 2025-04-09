@@ -98,10 +98,10 @@ const Campeonatos: React.FC = () => {
                 value={seleccampeo}
                 onChange={setSeleccampeo}
                 options={[
-                  { value: "1", label: "Torneo Apertura 2025 - Grupo 1" },
-                  { value: "2", label: "Torneo Apertura 2025 - Grupo 2" },
-                  { value: "3", label: "Torneo Apertura 2025 - Grupo 3" },
-                  { value: "4", label: "Torneo Apertura 2025 - Grupo 4" },
+                  { value: "Grupo 1", label: "Torneo Apertura 2025 - Grupo 1" },
+                  { value: "Grupo 2", label: "Torneo Apertura 2025 - Grupo 2" },
+                  { value: "Grupo 3", label: "Torneo Apertura 2025 - Grupo 3" },
+                  { value: "Grupo 4", label: "Torneo Apertura 2025 - Grupo 4" },
                 ]}
                 placeholder="Seleccione un campeonato*"
               />
@@ -128,7 +128,7 @@ const Campeonatos: React.FC = () => {
                 editable
               />
             </div>
-            <div style={{ display: "flex", gap: "55px" }}>
+            <div style={{ display: "flex", gap: "100px" }}>
               <CustomButton
                 variant="secondary"
                 onClick={() => {
