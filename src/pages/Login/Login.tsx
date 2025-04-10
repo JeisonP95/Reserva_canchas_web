@@ -1,3 +1,5 @@
+"use client"
+
 import  React from "react"
 import { useEffect, useState } from "react"
 import Forma from "../../assets/images/Forma.png"
@@ -66,55 +68,82 @@ const Login: React.FC = () => {
 
   return (
     <div className="login-container">
-      <div className="forma-imag">
-        <img src={Forma || "/placeholder.svg"} alt="Forma" className="image" />
+      <div className="forma-image">
+        <img src={Forma || "/placeholder.svg"} alt="" className="background-image" aria-hidden="true" />
       </div>
-      <div className="login-overlay">
-        <div className="login-container-left">
-          <img src={JugadorLogin || "/placeholder.svg"} alt="Jugador" />
+
+      <div className="login-content">
+        <div className="login-left">
+          <img src={JugadorLogin || "/placeholder.svg"} alt="Jugador" className="player-image" />
         </div>
-        <div className="login-container-right">
+
+        <div className="login-right">
           <div className="form-container">
-            <div className="login-form-header">
-              <h1 className="login-title">INICIAR</h1>
-              <h1 className="login-title">SESIÓN</h1>
-              {isAdminLogin && <h2 className="login-subtitle">ADMINISTRADOR</h2>}
+            <div className="login-header">
+              <h1 className="login-title">
+                <span className="title-line">INICIAR</span>
+                <span className="title-line">SESIÓN</span>
+              </h1>
+              {isAdminLogin && <h2 className="admin-subtitle">ADMINISTRADOR</h2>}
             </div>
 
-            {error && <div className="error-message">{error}</div>}
+            {error && (
+              <div className="error-message" role="alert">
+                <span>{error}</span>
+              </div>
+            )}
 
-            <form className="login-form" onSubmit={handleSubmit}>
-              <div className="input-container">
-                <label className="label-form">Usuario</label>
+            <form className="login-form" onSubmit={handleSubmit} noValidate>
+              <div className="input-group">
+                <label htmlFor="username" className="input-label">
+                  Usuario
+                </label>
                 <input
-                  type="text"
+                  id="username"
+                  type="email"
                   placeholder="Escribeaqui@tucorreo.com"
-                  className="login-input"
+                  className="input-field"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                   disabled={isLoading}
+                  required
                 />
               </div>
-              <div className="input-container">
-                <label className="label-form">Contraseña</label>
+
+              <div className="input-group">
+                <label htmlFor="password" className="input-label">
+                  Contraseña
+                </label>
                 <input
+                  id="password"
                   type="password"
                   placeholder="*********"
-                  className="login-input"
+                  className="input-field"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   disabled={isLoading}
+                  required
                 />
               </div>
+
               <a href="/change-password" className="forgot-password">
                 ¿Olvidó su contraseña?
               </a>
-              <div className="buttons">
-                <button type="submit" className="btn-login" disabled={isLoading}>
-                  {isLoading ? "Iniciando..." : "Iniciar"}
+
+              <div className="button-group">
+                <button type="submit" className="btn btn-primary" disabled={isLoading}>
+                  {isLoading ? (
+                    <>
+                      <span className="loading-spinner"></span>
+                      <span>Iniciando...</span>
+                    </>
+                  ) : (
+                    "Iniciar"
+                  )}
                 </button>
+
                 {!isAdminLogin && (
-                  <button type="button" className="btn-register" onClick={() => navigate("/registro-usuario")}>
+                  <button type="button" className="btn btn-secondary" onClick={() => navigate("/registro-usuario")}>
                     Registrarse
                   </button>
                 )}
@@ -127,5 +156,4 @@ const Login: React.FC = () => {
   )
 }
 
-export default Login;
-
+export default Login
