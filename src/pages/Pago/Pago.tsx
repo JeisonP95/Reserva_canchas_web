@@ -8,15 +8,11 @@ import CustomSelect from "../../components/Select/CustomSelect";
 import imgPse from "../../assets/images/image_pse.png";
 import CustomButton from "../../components/Buttons/CustomButton";
 import { useNavigate } from "react-router-dom";
+import img from "../../assets/images/JUGADOR.png"
 import "./Pago.css";
 
 const Pago: React.FC = () => {
-  const [correo, setCorreo] = React.useState("");
-  const [nombre, setNombre] = React.useState("");
-  const [apellido, setApellido] = React.useState("");
-  const [telefono, setTelefono] = React.useState("");
-  const [tipodocumento, setTipoDocumento] = React.useState("");
-  const [numerodocumento, setNumeroDocumento] = React.useState("");
+  
   const [valorreservamin, setValorreservamin] = React.useState("");
   const [banco, setBanco] = useState("");
   const [selectedBox, setSelectedBox] = useState<string | null>(null);
@@ -29,52 +25,9 @@ const Pago: React.FC = () => {
   return (
     <Background backgroundImage={fondo}>
       <FormData
-        childLeft={
-          <CustomForm>
-            <h2 className="title-pago">Detalles del cliente</h2>
-            <CustomInput
-              value={correo}
-              onChange={(value) => setCorreo(value)}
-              placeholder="Correo*"
-              editable
-            />
-            <CustomInput
-              value={nombre}
-              onChange={(value) => setCorreo(value)}
-              placeholder="Nombre*"
-              editable
-            />
-            <CustomInput
-              value={apellido}
-              onChange={(value) => setApellido(value)}
-              placeholder="Apellido*"
-              editable
-            />
-            <CustomInput
-              value={telefono}
-              onChange={(value) => setTelefono(value)}
-              placeholder="Teléfono*"
-              editable
-            />
-            
-            <CustomSelect
-              value={tipodocumento}
-              onChange={setTipoDocumento}
-              options={[
-                { value: "CC", label: "Cédula de ciudadanía" },
-                { value: "CE", label: "Cédula de extranjería" },
-              ]}
-              placeholder="Tipo de documento*"
-            />
-            <CustomInput
-              value={numerodocumento}
-              onChange={(value) => setNumeroDocumento(value)}
-              placeholder="Numero de  documento*"
-              editable
-            />
-            {/* Formulario de compra */}
-          </CustomForm>
-        }
+      
+        childLeft={<img src={img} />}   
+        
         childRight={
           <div className="child-right">
             <h2 className="title-perfil">Servicio a pagar</h2>
