@@ -1,64 +1,92 @@
 import React, { useState } from 'react';
 import './Calendar.css';
-// Componente de Calendario
+
+const monthNames = [
+  'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+  'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
+];
+
+const daysOfWeek = ["dom", "lun", "mar", "mie", "jue", "vie", "sab"];
+
 const Calendar: React.FC = () => {
-  const [selectedDay, setSelectedDay] = useState(18);
+  const today = new Date();
+  const todayMidnight = new Date(
+    today.getFullYear(), today.getMonth(), today.getDate()
+  ).getTime();
 
-  // Días de la semana en español
-  const daysOfWeek = ["dom", "lun", "mar", "mie", "jue", "vie", "sab"];
+  const [currentMonth, setCurrentMonth] = useState(today.getMonth());
+  const [currentYear, setCurrentYear] = useState(today.getFullYear());
+  const [selectedDate, setSelectedDate] = useState<Date | null>(today);
 
-  // Generar dias para Enero
-  const days = Array.from({ length: 31 }, (_, i) => i + 1);
+  const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+  const firstDayIndex = new Date(currentYear, currentMonth, 1).getDay();
 
-  // Crear grid del calendario
+  const handleMonthChange = (direction: 'prev' | 'next') => {
+    if (direction === 'prev') {
+      if (currentMonth === 0) {
+        setCurrentMonth(11);
+        setCurrentYear(prev => prev - 1);
+      } else {
+        setCurrentMonth(prev => prev - 1);
+      }
+    } else {
+      if (currentMonth === 11) {
+        setCurrentMonth(0);
+        setCurrentYear(prev => prev + 1);
+      } else {
+        setCurrentMonth(prev => prev + 1);
+      }
+    }
+  };
+
+  const handleYearChange = (increment: number) => {
+    setCurrentYear(prev => prev + increment);
+  };
+
   const renderCalendarGrid = () => {
-    const rows: React.ReactNode[] = [];
-    let cells: React.ReactNode[] = [];
+    const cells: React.ReactNode[] = [];
 
-    // Añadir encabezado con dias de la semana
-    const headerCells = daysOfWeek.map((day, index) => (
-      <div key={`header-${index}`} className="calendar-day-header">
-        {day}
-      </div>
-    ));
+    for (let i = 0; i < firstDayIndex; i++) {
+      cells.push(<div key={`empty-start-${i}`} className="calendar-day empty" />);
+    }
 
-    rows.push(
-      <div key="header" className="calendar-row">
-        {headerCells}
-      </div>
-    );
+    for (let day = 1; day <= daysInMonth; day++) {
+      const thisDate = new Date(currentYear, currentMonth, day);
+      const isPast = thisDate.getTime() < todayMidnight;
+      const isSelected = selectedDate &&
+        thisDate.toDateString() === selectedDate.toDateString();
 
-    // Añadir celdas de dias
-    days.forEach((day, index) => {
-      const isSelected = day === selectedDay;
+      let classNames = 'calendar-day';
+      if (isPast) classNames += ' past-day';
+      if (isSelected && !isPast) classNames += ' selected-day';
 
       cells.push(
         <div
           key={`day-${day}`}
-          className={`calendar-day ${isSelected ? 'selected-day' : ''}`}
-          onClick={() => setSelectedDay(day)}
+          className={classNames}
+          onClick={() => {
+            if (!isPast) {
+              setSelectedDate(thisDate);
+            }
+          }}
         >
           {day}
         </div>
       );
+    }
 
-      // Crear una nueva fila para cada semana
-      if ((index + 1) % 7 === 0 || index === days.length - 1) {
-        // Rellenar celdas restantes si es necesario
-        while (cells.length % 7 !== 0) {
-          cells.push(
-            <div key={`empty-${cells.length}`} className="calendar-day empty"></div>
-          );
-        }
+    while (cells.length % 7 !== 0) {
+      cells.push(<div key={`empty-end-${cells.length}`} className="calendar-day empty" />);
+    }
 
-        rows.push(
-          <div key={`row-${Math.floor(index / 7)}`} className="calendar-row">
-            {cells}
-          </div>
-        );
-        cells = [];
-      }
-    });
+    const rows: React.ReactNode[] = [];
+    for (let i = 0; i < cells.length; i += 7) {
+      rows.push(
+        <div key={`row-${i/7}`} className="calendar-row">
+          {cells.slice(i, i + 7)}
+        </div>
+      );
+    }
 
     return rows;
   };
@@ -66,9 +94,20 @@ const Calendar: React.FC = () => {
   return (
     <div className="calendar-container">
       <div className="calendar-header">
-        <h2>ENERO</h2>
+        <div className="calendar-nav">
+          <button onClick={() => handleYearChange(-1)}>«</button>
+          <button onClick={() => handleMonthChange('prev')}>‹</button>
+          <span>{monthNames[currentMonth]} {currentYear}</span>
+          <button onClick={() => handleMonthChange('next')}>›</button>
+          <button onClick={() => handleYearChange(1)}>»</button>
+        </div>
       </div>
       <div className="calendar-grid">
+        <div className="calendar-row">
+          {daysOfWeek.map((d, idx) => (
+            <div key={idx} className="calendar-day-header">{d}</div>
+          ))}
+        </div>
         {renderCalendarGrid()}
       </div>
     </div>

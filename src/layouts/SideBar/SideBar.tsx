@@ -12,76 +12,81 @@ const Sidebar: React.FC<SidebarProps> = ({ showSidebar, toggleSidebar }) => {
   const { isAdmin, logout } = useAuth()
   const navigate = useNavigate()
 
-  const handleLogout = () => {
-    // Llamar a la función logout del contexto de autenticación
-    logout()
-  }
+  const handleLogout = () => logout()
+
+  const menuItems = [
+    { icon: "🏠", label: "Inicio", path: "/home" },
+    { icon: "👤", label: "Perfil", path: "/perfil" },
+    { icon: "➕", label: "Crear Usuario", path: "/crearusuarioadmin" },
+    { icon: "⚽", label: "Inscripción Campeonatos", path: "/campeonatos" },
+    { icon: "📑", label: "Ver Inscripción", path: "/ver-inscripcion-campeonato" },
+    { icon: "🔑", label: "Cambiar Contraseña", path: "/change-password" }
+  ]
+
+  const adminItems = [
+    { icon: "🏆", label: "Crear Campeonatos", path: "/registro-campeonato" },
+    { icon: "💰", label: "Gestión Financiera", path: "/gestion-financiera" }
+  ]
 
   return (
     <>
-      {/* Botón de menú móvil */}
-      <button className="menu-button" onClick={toggleSidebar}>
-        ☰
+      {/* Siempre visible */}
+      <button
+        className="menu-button"
+        onClick={toggleSidebar}
+        aria-label={showSidebar ? "Cerrar menú" : "Abrir menú"}
+      >
+        <span className="menu-icon">{showSidebar ? "✕" : "☰"}</span>
+        <span className="menu-label">Menu</span>
       </button>
 
-      {/* Sidebar */}
-      <div className={`sidebar ${showSidebar ? "open" : ""}`}>
+      {/* Overlay */}
+      {showSidebar && <div className="overlay" onClick={toggleSidebar} />}
+
+      {/* Drawer */}
+      <nav className={`sidebar ${showSidebar ? "open" : ""}`}>
         <div className="sidebar-menu">
-          <button className="sidebar-button" onClick={() => navigate("/home")}>
-            <span className="sidebar-icon">🏠</span>
-            <span>Inicio</span>
-          </button>
-
-          <button className="sidebar-button" onClick={() => navigate("/perfil")}>
-            <span className="sidebar-icon">👤</span>
-            <span>Perfil</span>
-
-          </button><button className="sidebar-button" onClick={() => navigate("/crearusuarioadmin")}>
-            <span className="sidebar-icon">👤</span>
-            <span>Crear Usuario</span>
-          </button>
-
-          
-             <button className="sidebar-button" onClick={() => navigate("/campeonatos")}>
-              <span className="sidebar-icon">⚽</span>
-              <span>Inscripcion Campeonatos</span>
+          {menuItems.map(item => (
+            <button
+              key={item.path}
+              className="sidebar-button"
+              onClick={() => {
+                navigate(item.path)
+                toggleSidebar()
+              }}
+            >
+              <span className="sidebar-icon">{item.icon}</span>
+              <span>{item.label}</span>
             </button>
-                    
-          {isAdmin ? (
+          ))}
+
+          {isAdmin && (
             <>
-              <button className="sidebar-button" onClick={() => navigate("/registro-campeonato")}>
-                <span className="sidebar-icon">&#127942;</span>
-                <span>Crear Campeonatos</span>
-              </button>
-              <button className="sidebar-button" onClick={() => navigate("/gestion-financiera")}>
-                <span className="sidebar-icon">&#128178;</span>
-                <span>Gestion Financiera</span>
-              </button>
+              <div className="sidebar-divider" />
+              {adminItems.map(item => (
+                <button
+                  key={item.path}
+                  className="sidebar-button"
+                  onClick={() => {
+                    navigate(item.path)
+                    toggleSidebar()
+                  }}
+                >
+                  <span className="sidebar-icon">{item.icon}</span>
+                  <span>{item.label}</span>
+                </button>
+              ))}
             </>
-          ) : (
-            ""
           )}
-
-
-          <button className="sidebar-button" onClick={() => navigate("/ver-inscripcion-campeonato")}>
-            <span className="sidebar-icon">📑</span>
-            <span>Ver Inscripcion Campeonato</span>
-          </button>
-
-          <button className="sidebar-button" onClick={() => navigate("/change-password")}>
-            <span className="sidebar-icon">🔑</span>
-            <span>Cambiar Contraseña</span>
-          </button>
         </div>
 
         <button className="logout-button" onClick={handleLogout}>
           <span className="sidebar-icon">🚪</span>
           <span>Cerrar Sesión</span>
         </button>
-      </div>
+      </nav>
     </>
   )
 }
 
 export default Sidebar
-

@@ -6,26 +6,6 @@
   position: relative;
 }
 
-/* Boton de menu */
-.menu-button {
-  position: fixed;
-  top: 15px;
-  left: 11px;
-  z-index: 1000;
-  background: linear-gradient(135deg, #6e72e8, #5a5ee7);
-  color: rgb(255, 255, 255);
-  border: none;
-  border-radius: 8px;
-  width: 45px;
-  height: 45px;
-  font-size: 24px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 10px rgba(110, 114, 232, 0.4);
-  transition: all 0.3s ease;
-}
 
 .menu-button:hover {
   transform: translateY(-2px);
